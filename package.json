@@ -14,7 +14,7 @@
   "type": "module",
   "packageManager": "pnpm@10.29.2",
   "engines": {
-    "node": "24.x"
+    "node": ">=20.x"
   },
   "scripts": {
     "dev": "nuxt dev",
@@ -22,6 +22,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -31,7 +33,11 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^4.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.6.3",
     "prettier": "^3.8.1",
-    "sass-embedded": "^1.86.0"
+    "sass-embedded": "^1.86.0",
+    "vitest": "^4.0.18"
   }
 }
