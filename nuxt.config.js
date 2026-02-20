@@ -86,7 +86,7 @@ export default defineNuxtConfig({
   },
 
   /* ── Modules ────────────────────────────────────── */
-  modules: [],
+  modules: ['@nuxt/test-utils/module'],
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
   compatibilityDate: '2025-01-01',
