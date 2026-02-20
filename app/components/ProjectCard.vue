@@ -49,6 +49,9 @@
   import IconStar from '~/components/icons/IconStar.vue';
   import IconFork from '~/components/icons/IconFork.vue';
 
+  /* Pull the full language-color map from the shared composable */
+  const { langColor } = useLanguageList();
+
   defineProps({
     /** Repository object from useGithubRepos composable */
     repo: {
@@ -56,34 +59,6 @@
       required: true,
     },
   });
-
-  /**
-   * Returns a hex color for a given programming language.
-   * Covers the most popular languages on GitHub.
-   */
-  function langColor(lang) {
-    const colors = {
-      JavaScript: '#f1e05a',
-      TypeScript: '#3178c6',
-      Python: '#3572A5',
-      HTML: '#e34c26',
-      CSS: '#563d7c',
-      Shell: '#89e051',
-      Vue: '#41b883',
-      Rust: '#dea584',
-      Go: '#00ADD8',
-      Java: '#b07219',
-      Ruby: '#701516',
-      PHP: '#4F5D95',
-      MDX: '#fcb32c',
-      'C++': '#f34b7d',
-      C: '#555555',
-      Dart: '#00B4AB',
-      Swift: '#F05138',
-      Kotlin: '#A97BFF',
-    };
-    return colors[lang] || '#888888';
-  }
 </script>
 
 <style lang="scss" scoped>

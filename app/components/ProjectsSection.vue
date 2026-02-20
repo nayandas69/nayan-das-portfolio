@@ -41,10 +41,11 @@
 </template>
 
 <script setup>
+  import IconArrow from '~/components/icons/IconArrow.vue';
+
   /**
    * Fetch 6 most recently pushed public repos.
    * useGithubRepos is auto-imported from ~/composables/
-   * IconArrow is auto-imported from ~/components/icons/
    */
   const { repos, loading, error } = useGithubRepos('nayandas69', 6);
 </script>
