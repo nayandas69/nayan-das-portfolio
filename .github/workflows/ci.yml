@@ -1,0 +1,71 @@
+# -----------------------------------------------------------
+# CI -- Nayan Das Portfolio
+# -----------------------------------------------------------
+# Single workflow that validates code quality on every push
+# and pull request against the main branch.
+#
+# Steps run sequentially so failures surface in a logical
+# order: format -> test -> build.
+#
+# Matrix: Node 20 / 22 / 24 (LTS and Current)
+# -----------------------------------------------------------
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel in-progress runs for the same branch / PR
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Node ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      # Run every node version even if one fails
+      fail-fast: false
+      matrix:
+        node-version: [20, 22, 24]
+
+    steps:
+      # ---- Checkout ----
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # ---- pnpm ----
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # ---- Node ----
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      # ---- Install ----
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ---- Format check ----
+      - name: Check formatting (Prettier)
+        run: pnpm format:check
+
+      # ---- Tests ----
+      - name: Run tests (Vitest)
+        run: pnpm test
+
+      # ---- Build ----
+      - name: Build project (Nuxt)
+        run: pnpm build
