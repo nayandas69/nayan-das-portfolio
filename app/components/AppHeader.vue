@@ -30,7 +30,7 @@
     <p class="header__bio">
       I am a developer and creator who builds open-source tools, side projects, and writes about
       code. I enjoy crafting software that solves real problems and sharing what I learn along the
-      way. I joind a gaming company as Backend Leader, which is a fun new adventure!
+      way. I joined a gaming company as Backend Leader, which is a fun new adventure!
     </p>
   </header>
 </template>
