@@ -61,8 +61,12 @@ export default defineNuxtConfig({
           content: 'Developer portfolio showcasing open-source projects, blog posts, and more.',
         },
         { property: 'og:type', content: 'website' },
-        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:creator', content: '@nayandas69' },
+        { property: 'og:image', content: 'https://nayan-das-portfolio-navy.vercel.app/look.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { name: 'twitter:image', content: 'https://nayan-das-portfolio-navy.vercel.app/look.png' },
       ],
       link: [
         /* Favicon - Github avatar as a simple personal brand icon */
@@ -74,13 +78,20 @@ export default defineNuxtConfig({
         /* Google Fonts — Space Grotesk (headings) + Inter (body) + JetBrains Mono (code) */
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
+          rel: 'preconnect',
           href: 'https://fonts.gstatic.com',
           crossorigin: 'anonymous',
         },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap',
+          media: 'print',
+          onload: "this.media='all'",
         },
+        /* DNS prefetch for API domains — resolves DNS early */
+        { rel: 'dns-prefetch', href: 'https://api.github.com' },
+        { rel: 'dns-prefetch', href: 'https://blogverse-five-omega.vercel.app' },
+        { rel: 'dns-prefetch', href: 'https://avatars.githubusercontent.com' },
       ],
     },
   },
