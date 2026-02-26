@@ -15,7 +15,7 @@ nayan-das-portfolio/
 ├── LICENSE
 ├── README
 ├── CLICK-ME.md
-├── nuxt.config.js
+├── nuxt.config.ts
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml

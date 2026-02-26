@@ -5,6 +5,7 @@
  * SCSS globals injected via Vite preprocessorOptions.
  * Vercel-compatible SSR deployment.
  */
+import { defineNuxtConfig } from 'nuxt/config';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -33,10 +34,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler',
+          api: 'modern-compiler' as const,
           loadPaths: [scssDir],
           additionalData: `@use 'sass:color'; @use 'shared' as *;`,
-        },
+        } as Record<string, unknown>,
       },
     },
   },
