@@ -1,6 +1,6 @@
 {
   "name": "nayan-das-portfolio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "license": "MIT",
   "author": {
@@ -14,7 +14,7 @@
   "type": "module",
   "packageManager": "pnpm@10.29.2",
   "engines": {
-    "node": ">=20.x"
+    "node": ">=24.x"
   },
   "scripts": {
     "dev": "nuxt dev",
@@ -29,15 +29,16 @@
   },
   "dependencies": {
     "nuxt": "^4.3.1",
-    "vue": "^3.5.28",
-    "vue-router": "^4.5.0"
+    "vue": "^3.5.29",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^4.0.0",
+    "@types/node": "^25.3.1",
     "@vue/test-utils": "^2.4.6",
-    "happy-dom": "^20.6.3",
+    "happy-dom": "^20.7.0",
     "prettier": "^3.8.1",
-    "sass-embedded": "^1.86.0",
+    "sass-embedded": "^1.97.3",
     "vitest": "^4.0.18"
   }
 }
