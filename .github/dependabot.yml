@@ -1,0 +1,52 @@
+version: 2
+updates:
+  # NPM dependencies
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '03:00'
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: 'chore(deps)'
+      prefix-development: 'chore(deps-dev)'
+      include: 'scope'
+    pull-request-branch-name:
+      separator: '/'
+    labels:
+      - 'dependencies'
+      - 'npm'
+      - 'automated'
+    reviewers:
+      - 'nayandas69'
+    assignees:
+      - 'nayandas69'
+    allow:
+      - dependency-type: 'direct'
+      - dependency-type: 'indirect'
+    ignore:
+      - dependency-name: 'node'
+    rebase-strategy: 'auto'
+    versioning-strategy: 'semver-minor'
+
+  # GitHub Actions workflows
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '04:00'
+    commit-message:
+      prefix: 'chore(ci)'
+      include: 'scope'
+    pull-request-branch-name:
+      separator: '/'
+    labels:
+      - 'github-actions'
+      - 'ci-cd'
+      - 'automated'
+    reviewers:
+      - 'nayandas69'
+    assignees:
+      - 'nayandas69'
+    rebase-strategy: 'auto'
+    versioning-strategy: 'semver'
