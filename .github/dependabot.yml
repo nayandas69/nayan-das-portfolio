@@ -5,7 +5,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-      time: '03:00'
+      time: '03:00' # UTC
     open-pull-requests-limit: 10
     commit-message:
       prefix: 'chore(deps)'
@@ -27,7 +27,7 @@ updates:
     ignore:
       - dependency-name: 'node'
     rebase-strategy: 'auto'
-    versioning-strategy: 'semver-minor'
+    versioning-strategy: 'auto'
 
   # GitHub Actions workflows
   - package-ecosystem: 'github-actions'
@@ -49,4 +49,3 @@ updates:
     assignees:
       - 'nayandas69'
     rebase-strategy: 'auto'
-    versioning-strategy: 'semver'
