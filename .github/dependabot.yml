@@ -1,51 +1,87 @@
 version: 2
+
 updates:
-  # NPM dependencies
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
-      time: '03:00' # UTC
-    open-pull-requests-limit: 10
+      interval: 'monthly'
+      time: '03:00'
+      timezone: 'UTC'
+
+    open-pull-requests-limit: 5
+
     commit-message:
       prefix: 'chore(deps)'
-      prefix-development: 'chore(deps-dev)'
       include: 'scope'
+
     pull-request-branch-name:
       separator: '/'
+
     labels:
       - 'dependencies'
       - 'npm'
-      - 'automated'
+
     reviewers:
       - 'nayandas69'
+
     assignees:
       - 'nayandas69'
+
+    rebase-strategy: 'auto'
+    versioning-strategy: 'increase'
+
     allow:
       - dependency-type: 'direct'
-      - dependency-type: 'indirect'
-    ignore:
-      - dependency-name: 'node'
-    rebase-strategy: 'auto'
-    versioning-strategy: 'auto'
 
-  # GitHub Actions workflows
+    groups:
+      nuxt:
+        patterns:
+          - 'nuxt'
+          - '@nuxt/*'
+
+      vue:
+        patterns:
+          - 'vue'
+          - '@vue/*'
+
+      testing:
+        patterns:
+          - 'vitest'
+          - '@vue/test-utils'
+          - '@nuxt/test-utils'
+          - 'happy-dom'
+
+      formatting:
+        patterns:
+          - 'prettier'
+
+      types:
+        patterns:
+          - '@types/*'
+
   - package-ecosystem: 'github-actions'
     directory: '/'
+
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
       time: '04:00'
+      timezone: 'UTC'
+
     commit-message:
       prefix: 'chore(ci)'
       include: 'scope'
+
     pull-request-branch-name:
       separator: '/'
+
     labels:
+      - 'ci'
       - 'github-actions'
-      - 'ci-cd'
-      - 'automated'
+
     reviewers:
       - 'nayandas69'
+
     assignees:
       - 'nayandas69'
+
     rebase-strategy: 'auto'
