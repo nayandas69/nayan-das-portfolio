@@ -4,7 +4,7 @@
   Social icons use clean SF-style SVGs (thin strokes, rounded).
 -->
 <template>
-  <header class="header fade-up">
+  <header class="header">
     <!-- Name -->
     <h1 class="header__name">nayan das</h1>
 

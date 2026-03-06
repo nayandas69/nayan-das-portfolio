@@ -31,8 +31,13 @@ body {
   color: $color-text;
   line-height: 1.6;
   min-height: 100dvh;
-  /* Initial blur state for reveal effect */
-  animation: blurReveal 0.8s ease-out forwards;
+  // Blur reveal animation.
+  // fill-mode 'both' applies the 'from' state before the animation fires,
+  // and the critical inline style in nuxt.config head (body{opacity:0})
+  // guarantees zero flash even before this CSS file is parsed.
+  // cubic-bezier(0.16,1,0.3,1) = expo-out: fast start, silky deceleration.
+  animation: blurReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: filter, opacity;
 }
 
 // ── Typography ──────────────────────────────────────
@@ -174,14 +179,19 @@ code,
 }
 
 // ── Blur Reveal Animation ───────────────────────────
+// Cinematic page entrance: starts fully blurred + invisible,
+// arrives smoothly with expo-out deceleration.
 @keyframes blurReveal {
   from {
     opacity: 0;
-    filter: blur(16px);
+    filter: blur(20px);
+    // Slight upward drift for depth — feels like content 'arriving'
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    filter: blur(0);
+    filter: blur(0px);
+    transform: translateY(0);
   }
 }
 
@@ -189,16 +199,5 @@ code,
   animation: blurReveal 0.8s ease-out forwards;
 }
 
-// Apply blur reveal to entire app on mount
-html.blur-reveal-mode {
-  * {
-    animation: blurReveal 0.8s ease-out forwards;
-  }
-
-  /* Stagger effect for elements */
-  @for $i from 0 through 20 {
-    :nth-child(#{$i}) {
-      animation-delay: #{$i * 0.05}s;
-    }
-  }
-}
+// Note: blur-reveal-mode class system removed.
+// Blur reveal is handled entirely by the body animation above.
