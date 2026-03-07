@@ -13,9 +13,6 @@
 
     <!-- Articles: auto-fetched blog posts from Blogverse API -->
     <ArticlesSection class="motion-blur delay-500" />
-
-    <!-- Footer: copyright + colophon -->
-    <AppFooter class="motion-blur delay-600" />
   </main>
 </template>
 
