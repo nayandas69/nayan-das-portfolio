@@ -9,7 +9,7 @@ this page is not completed yet
     <div class="content-wrapper">
       <!-- Top Minimal Header -->
       <header class="about-header elegant-fade-up delay-100">
-        <h1 class="page-title">nayan_das / about</h1>
+        <h1 class="page-title">/about</h1>
         <p class="role-subtitle">Full-Stack Engineer & Cross-Platform Creator</p>
       </header>
 
