@@ -49,10 +49,6 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Nayan Das — Developer & Creator',
-      // Critical inline style: hides body BEFORE any external CSS loads.
-      // This is the only 100% reliable way to prevent flash-of-content
-      // during SSR. The body animation in main.scss then takes over.
-      style: [{ textContent: 'body{opacity:0}' }],
       meta: [
         {
           name: 'description',
@@ -90,8 +86,6 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap',
-          media: 'print',
-          onload: "this.media='all'",
         },
         /* DNS prefetch for API domains — resolves DNS early */
         { rel: 'dns-prefetch', href: 'https://api.github.com' },
