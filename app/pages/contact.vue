@@ -8,7 +8,7 @@
   <main class="contact-page">
     <!-- Header: Consistent with AppHeader -->
     <header class="contact-header">
-      <h1 class="contact-title motion-blur delay-100">contact / nayan das</h1>
+      <h1 class="contact-title motion-blur delay-100">/contact</h1>
 
       <!-- Social links row (shared social pattern) -->
       <nav class="contact-nav motion-blur delay-200" aria-label="Social links">
