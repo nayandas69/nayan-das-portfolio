@@ -20,6 +20,7 @@ nayan-das-portfolio/
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── structure.md
+├── tsconfig.json
 ├── vitest.config.ts
 ├── __tests__/
 │   ├── components/
@@ -42,6 +43,7 @@ nayan-das-portfolio/
 │   ├── components/
 │   │   ├── AppFooter.vue
 │   │   ├── AppHeader.vue
+│   │   ├── AppNavbar.vue
 │   │   ├── ArticlesSection.vue
 │   │   ├── ProjectCard.vue
 │   │   ├── ProjectsSection.vue
@@ -62,8 +64,13 @@ nayan-das-portfolio/
 │   ├── layouts/
 │   │   └── default.vue
 │   └── pages/
-│       └── index.vue
+│       ├── index.vue
+│       ├── about.vue
+│       ├── gallery.vue
+│       └── contact.vue
 └── public/
     ├── .gitkeep
-    └── look.png
+    ├── look.png
+    └── images/
+        └── photo-1.avif # jpg, png, svg, etc.
 ```
