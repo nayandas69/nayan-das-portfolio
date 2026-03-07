@@ -1,6 +1,6 @@
 {
   "name": "nayan-das-portfolio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "license": "MIT",
   "author": {
@@ -12,7 +12,7 @@
     "url": "https://github.com/nayandas69/nayan-das-portfolio.git"
   },
   "type": "module",
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "pnpm@10.30.3",
   "engines": {
     "node": ">=24.x"
   },
