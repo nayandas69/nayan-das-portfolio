@@ -99,6 +99,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/test-utils/module', '@nuxtjs/sitemap'],
 
   /* ── Site URL for sitemap generation ────────────── */
+  // @ts-ignore - 'site' property from @nuxtjs/sitemap
   site: {
     url: 'https://nayan-das-portfolio-navy.vercel.app',
   },
