@@ -1,3 +1,5 @@
+import type { GithubRepo } from '~/types';
+
 /**
  * useGithubRepos
  *
@@ -5,25 +7,29 @@
  * Uses useAsyncData + $fetch for reliable SSR/CSR fetching with proper
  * error handling and response validation.
  *
- * @param {string} username — GitHub username
- * @param {number} limit    — max repos to return (default 6)
- * @returns {{ repos: Ref, loading: ComputedRef<boolean>, error: Ref }}
+ * @param {string} [username] — GitHub username
+ * @param {number} [limit]    — max repos to return
+ * @returns {{ repos: Ref<GithubRepo[]>, loading: ComputedRef<boolean>, error: Ref<any> }}
  */
-export function useGithubRepos(username = 'nayandas69', limit = 6) {
+export function useGithubRepos(username?: string, limit?: number) {
+  const { profile } = useAppConfig();
+  const targetUser = username || 'nayandas69';
+  const targetLimit = limit || 6;
+
   /* GitHub REST API — public repos sorted by last push */
-  const apiUrl = `https://api.github.com/users/${username}/repos`;
+  const apiUrl = `https://api.github.com/users/${targetUser}/repos`;
 
   const {
     data: repos,
     status,
     error,
-  } = useAsyncData(
-    `github-repos-${username}`,
+  } = useAsyncData<GithubRepo[]>(
+    `github-repos-${targetUser}`,
     () =>
       $fetch(apiUrl, {
         params: {
           sort: 'pushed',
-          per_page: limit,
+          per_page: targetLimit,
           type: 'public',
         },
         headers: {
@@ -32,11 +38,11 @@ export function useGithubRepos(username = 'nayandas69', limit = 6) {
       }),
     {
       /* Transform raw GitHub response into a clean, minimal shape */
-      transform: (raw) => {
+      transform: (raw: any[]) => {
         /* Guard: ensure we received an array from GitHub */
         if (!Array.isArray(raw)) return [];
 
-        return raw.map((repo) => ({
+        return raw.map((repo: any) => ({
           name: repo.name,
           description: repo.description || 'No description provided.',
           language: repo.language,
