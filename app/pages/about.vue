@@ -20,7 +20,7 @@ this page is not completed yet
             <div class="image-container">
               <img
                 src="https://avatars.githubusercontent.com/u/174907517?v=4"
-                alt="Nayan Das"
+                :alt="profile.name"
                 class="profile-img"
               />
               <div class="image-overlay"></div>
@@ -119,15 +119,17 @@ this page is not completed yet
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { ref, onMounted, onUnmounted } from 'vue';
 
+  const { profile } = useAppConfig();
+
   useHead({
-    title: 'About - Nayan Das',
+    title: `About - ${profile.name}`,
     meta: [
       {
         name: 'description',
-        content: 'About Nayan Das - Full-Stack Engineer & Cross-Platform Creator.',
+        content: `About ${profile.name} - Full-Stack Engineer & Cross-Platform Creator.`,
       },
     ],
   });

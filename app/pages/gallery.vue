@@ -75,18 +75,28 @@ this page is not completed yet
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { ref } from 'vue';
 
+  const { profile } = useAppConfig();
+
   useHead({
-    title: 'Gallery - Nayan Das',
+    title: `Gallery - ${profile.name}`,
     meta: [
-      { name: 'description', content: 'Selected visuals and personal photography by Nayan Das.' },
+      {
+        name: 'description',
+        content: `Selected visuals and personal photography by ${profile.name}.`,
+      },
     ],
   });
 
   // Section 1: Selected Visuals
-  const galleryItems = ref([
+  interface GalleryItem {
+    title: string;
+    category: string;
+    src: string;
+  }
+  const galleryItems = ref<GalleryItem[]>([
     {
       title: 'Workspace Setup',
       category: 'Environment',
@@ -115,14 +125,20 @@ this page is not completed yet
   ]);
 
   // Section 2: Personal Photography
-  // In this section I use my own personal photos
-  const photographyItems = ref([
+  interface PhotographyItem {
+    title: string;
+    tag: string;
+    date: string;
+    src: string;
+    alt: string;
+  }
+  const photographyItems = ref<PhotographyItem[]>([
     {
       title: 'Evening Glow',
       tag: 'Portrait',
       date: 'Late 2020',
       src: '/images/nayan-das.jpg',
-      alt: 'Silhouette self portrait of Nayan Das during sunset',
+      alt: `Silhouette self portrait of ${profile.name} during sunset`,
     },
     {
       title: 'Caramel Delight',

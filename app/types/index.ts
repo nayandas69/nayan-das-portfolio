@@ -36,7 +36,6 @@ export interface AppConfig {
     bio: string;
     email: string;
   };
-  socials: SocialLink[];
   api: {
     blogverse: string;
   };

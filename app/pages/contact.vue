@@ -116,32 +116,35 @@
         <h2 class="section-title">03 / Direct line</h2>
         <p class="direct-text">
           Prefer a long-form message? Reach me directly via email at:
-          <a href="mailto:nayanchandradas@hotmail.com" class="text-link"
-            >nayanchandradas@hotmail.com</a
-          >
+          <a :href="`mailto:${profile.email}`" class="text-link">{{ profile.email }}</a>
         </p>
       </div>
     </section>
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import IconGithub from '~/components/icons/IconGithub.vue';
   import IconX from '~/components/icons/IconX.vue';
   import IconDiscord from '~/components/icons/IconDiscord.vue';
   import IconMail from '~/components/icons/IconMail.vue';
 
+  const { profile } = useAppConfig();
+
   // --- Header Socials ---
   const socials = [
     { label: 'github', url: 'https://github.com/nayandas69', icon: IconGithub },
     { label: 'x', url: 'https://x.com/nayandas69', icon: IconX },
     { label: 'discord', url: 'https://discord.gg/u9XfHZN8K9', icon: IconDiscord },
-    { label: 'email', url: 'mailto:nayanchandradas@hotmail.com', icon: IconMail },
+    { label: 'email', url: `mailto:${profile.email}`, icon: IconMail },
   ];
 
   // --- Discord Widget Data ---
-  const discordData = ref(null);
+  interface DiscordWidget {
+    presence_count: string | number;
+  }
+  const discordData = ref<DiscordWidget | null>(null);
 
   const fetchDiscord = async () => {
     try {
@@ -162,8 +165,13 @@
 
   // --- SEO ---
   useHead({
-    title: 'Contact - Nayan Das',
-    meta: [{ name: 'description', content: 'Contact Nayan Das via Discord, Cal.com, or Email.' }],
+    title: `Contact - ${profile.name}`,
+    meta: [
+      {
+        name: 'description',
+        content: `Contact ${profile.name} via Discord, Cal.com, or Email.`,
+      },
+    ],
   });
 </script>
 

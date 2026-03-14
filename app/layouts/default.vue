@@ -17,6 +17,8 @@
   </div>
 </template>
 
+<script setup lang="ts"></script>
+
 <style lang="scss" scoped>
   .layout {
     min-height: 100dvh;

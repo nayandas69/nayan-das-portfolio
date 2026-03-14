@@ -44,7 +44,8 @@
   </a>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  import type { GithubRepo } from '~/types';
   import IconRepo from '~/components/icons/IconRepo.vue';
   import IconStar from '~/components/icons/IconStar.vue';
   import IconFork from '~/components/icons/IconFork.vue';
@@ -52,13 +53,10 @@
   /* Pull the full language-color map from the shared composable */
   const { langColor } = useLanguageList();
 
-  defineProps({
+  defineProps<{
     /** Repository object from useGithubRepos composable */
-    repo: {
-      type: Object,
-      required: true,
-    },
-  });
+    repo: GithubRepo;
+  }>();
 </script>
 
 <style lang="scss" scoped>

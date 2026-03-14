@@ -11,7 +11,7 @@
       <p class="error-page__code">{{ error?.statusCode || 404 }}</p>
 
       <!-- Stylish name -->
-      <h1 class="error-page__name">nayan das</h1>
+      <h1 class="error-page__name">{{ profile.name }}</h1>
 
       <!-- Cheeky message -->
       <p class="error-page__message">
@@ -27,17 +27,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  /**
+   * Access centralized profile info from app.config.ts
+   */
+  const { profile } = useAppConfig();
+
   /**
    * Nuxt auto-injects the `error` prop into error.vue.
    * Contains statusCode and message from the thrown error.
    */
-  const props = defineProps({
+  const props = defineProps<{
     error: {
-      type: Object,
-      default: () => ({}),
-    },
-  });
+      statusCode?: number;
+      message?: string;
+    };
+  }>();
 
   /**
    * Pick a fun message based on the status code.
@@ -46,7 +51,7 @@
     const code = props.error?.statusCode;
 
     if (code === 404) {
-      return "yo, nayan das didn't build this page for you. why you even here?";
+      return `yo, ${profile.name} didn't build this page for you. why you even here?`;
     }
     if (code === 500) {
       return 'something broke internally. not my fault... probably.';

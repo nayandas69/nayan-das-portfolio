@@ -6,7 +6,7 @@
 <template>
   <header class="header">
     <!-- Name -->
-    <h1 class="header__name motion-blur delay-100">nayan das</h1>
+    <h1 class="header__name motion-blur delay-100">{{ profile.name }}</h1>
 
     <!-- Social links row -->
     <nav class="header__nav motion-blur delay-200" aria-label="Social links">

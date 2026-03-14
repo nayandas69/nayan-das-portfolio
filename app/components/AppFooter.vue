@@ -7,7 +7,7 @@
     <p class="footer__copy">
       &copy; {{ year }}
       <a href="https://github.com/nayandas69" target="_blank" rel="noopener noreferrer">
-        Nayan Das
+        {{ profile.name }}
       </a>
       &nbsp;&middot;&nbsp; Source code on
       <a
@@ -21,7 +21,8 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  const { profile } = useAppConfig();
   const year = new Date().getFullYear();
 </script>
 

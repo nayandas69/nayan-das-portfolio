@@ -24,14 +24,19 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  /**
+   * Access centralized config
+   */
+  const { api } = useAppConfig();
+
   /**
    * Navigation links as requested.
    * Blog is an external URL. Order: Home, Blog, Gallery, Contact, About.
    */
   const navItems = [
     { label: 'Home', path: '/', external: false },
-    { label: 'Blog', path: 'https://blogverse-five-omega.vercel.app', external: true },
+    { label: 'Blog', path: api.blogverse.replace('/api/v1', ''), external: true },
     { label: 'Gallery', path: '/gallery', external: false },
     { label: 'Contact', path: '/contact', external: false },
     { label: 'About', path: '/about', external: false },
