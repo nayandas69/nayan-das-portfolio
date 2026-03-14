@@ -33,6 +33,7 @@
     "vue-router": "^5.0.3"
   },
   "devDependencies": {
+    "@nuxt/image": "^1.9.0",
     "@nuxt/test-utils": "^4.0.0",
     "@nuxtjs/sitemap": "^7.6.0",
     "@types/node": "^25.3.3",
@@ -40,6 +41,7 @@
     "happy-dom": "^20.8.3",
     "prettier": "^3.8.1",
     "sass-embedded": "^1.97.3",
+    "sharp": "^0.33.5",
     "vitest": "^4.0.18"
   }
 }
