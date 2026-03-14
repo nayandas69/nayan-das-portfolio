@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nayan-das-portfolio-navy.vercel.app
+
+# Sitemaps
+Sitemap: https://nayan-das-portfolio-navy.vercel.app/sitemap.xml
