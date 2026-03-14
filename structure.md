@@ -87,6 +87,7 @@ nayan-das-portfolio/
 │
 └── public/                   # Static assets
     ├── .gitkeep
+    ├── robots.txt
     ├── look.png
     └── images/
         └── photo-1.avif
