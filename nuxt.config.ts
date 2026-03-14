@@ -108,6 +108,15 @@ export default defineNuxtConfig({
   sitemap: {
     zeroRuntime: true,
     discoverImages: true,
+    autoLastmod: true,
+  },
+
+  /* ── Nitro configuration for prerendering ────────── */
+  nitro: {
+    prerender: {
+      routes: ['/', '/about', '/contact', '/gallery'],
+      crawlLinks: true,
+    },
   },
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
