@@ -4,7 +4,7 @@
  * Validates the language-to-color mapping composable.
  * Tests known languages, edge cases, and the fallback behavior.
  *
- * @see ~/composables/useLanguageList.js
+ * @see ~/composables/useLanguageList.ts
  */
 import { describe, it, expect } from 'vitest';
 import { useLanguageList } from '~/composables/useLanguageList';
