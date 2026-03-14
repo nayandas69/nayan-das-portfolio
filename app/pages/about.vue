@@ -18,10 +18,14 @@ this page is not completed yet
         <aside class="sidebar elegant-fade-up delay-200">
           <div class="profile-card">
             <div class="image-container">
-              <img
+              <NuxtImg
                 src="https://avatars.githubusercontent.com/u/174907517?v=4"
                 :alt="profile.name"
                 class="profile-img"
+                width="300"
+                height="300"
+                format="webp"
+                loading="lazy"
               />
               <div class="image-overlay"></div>
             </div>

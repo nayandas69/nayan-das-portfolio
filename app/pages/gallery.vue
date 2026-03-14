@@ -38,9 +38,15 @@ this page is not completed yet
           </div>
 
           <div class="row-image">
-            <div class="image-reveal">
-              <img :src="item.src" :alt="item.title" loading="lazy" />
-            </div>
+            <NuxtImg
+              :src="item.src"
+              :alt="item.title"
+              loading="lazy"
+              format="webp"
+              quality="80"
+              width="600"
+              height="400"
+            />
           </div>
         </NuxtLink>
       </div>
@@ -60,7 +66,15 @@ this page is not completed yet
           :style="{ transitionDelay: `${(index + 1) * 100}ms` }"
         >
           <div class="photo-wrapper">
-            <img :src="photo.src" :alt="photo.alt" loading="lazy" />
+            <NuxtImg
+              :src="photo.src"
+              :alt="photo.alt"
+              loading="lazy"
+              format="webp"
+              quality="80"
+              width="800"
+              height="800"
+            />
             <div class="photo-overlay">
               <span class="photo-tag">{{ photo.tag }}</span>
             </div>
