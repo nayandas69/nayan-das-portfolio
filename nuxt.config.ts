@@ -104,6 +104,11 @@ export default defineNuxtConfig({
     url: 'https://nayan-das-portfolio-navy.vercel.app',
   },
 
+  /* ── Sitemap Configuration ───────────────────────── */
+  sitemap: {
+    zeroRuntime: true,
+  },
+
   /* ── Compatibility date (required by Nuxt 4) ───── */
   compatibilityDate: '2025-01-01',
 
