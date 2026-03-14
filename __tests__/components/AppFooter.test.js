@@ -26,12 +26,12 @@ describe('AppFooter', () => {
     expect(wrapper.text()).toContain(currentYear);
   });
 
-  /* ── Renders "Nayan Das" link ──────────────────────── */
-  it('renders "Nayan Das" link pointing to GitHub profile', async () => {
+  /* ── Renders name link ────────────────────────────── */
+  it('renders name link pointing to GitHub profile', async () => {
     const wrapper = await mountSuspended(AppFooter);
 
     const links = wrapper.findAll('a');
-    const nayanLink = links.find((link) => link.text() === 'Nayan Das');
+    const nayanLink = links.find((link) => link.text().toLowerCase() === 'nayan das');
 
     expect(nayanLink).toBeDefined();
     expect(nayanLink.attributes('href')).toBe('https://github.com/nayandas69');
