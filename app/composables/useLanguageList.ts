@@ -9,7 +9,7 @@
  */
 export function useLanguageList() {
   /* ── Complete language → hex-color map ─────────────────────────── */
-  const colors = {
+  const colors: Record<string, string> = {
     '1C Enterprise': '#814CCC',
     '2-Dimensional Array': '#38761D',
     '4D': '#004289',
@@ -601,7 +601,7 @@ export function useLanguageList() {
    * @param {string} lang — language name (case-sensitive, GitHub style)
    * @returns {string} hex color string
    */
-  function langColor(lang) {
+  function langColor(lang: string) {
     return colors[lang] || '#888888';
   }
 

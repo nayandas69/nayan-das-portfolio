@@ -96,7 +96,13 @@ export default defineNuxtConfig({
   },
 
   /* ── Modules ────────────────────────────────────── */
-  modules: ['@nuxt/test-utils/module'],
+  modules: ['@nuxt/test-utils/module', '@nuxtjs/sitemap'],
+
+  /* ── Site URL for sitemap generation ────────────── */
+  // @ts-ignore - 'site' property from @nuxtjs/sitemap
+  site: {
+    url: 'https://nayan-das-portfolio-navy.vercel.app',
+  },
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
   compatibilityDate: '2025-01-01',

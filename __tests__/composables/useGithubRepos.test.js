@@ -5,7 +5,7 @@
  * Uses registerEndpoint from @nuxt/test-utils/runtime to intercept
  * the $fetch call made by useAsyncData.
  *
- * @see ~/composables/useGithubRepos.js
+ * @see ~/composables/useGithubRepos.ts
  */
 import { describe, it, expect } from 'vitest';
 import { registerEndpoint } from '@nuxt/test-utils/runtime';

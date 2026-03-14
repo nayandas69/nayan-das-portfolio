@@ -5,7 +5,7 @@
  * Uses registerEndpoint from @nuxt/test-utils/runtime to intercept
  * the useFetch call made to the Blogverse API.
  *
- * @see ~/composables/useBlogPosts.js
+ * @see ~/composables/useBlogPosts.ts
  */
 import { describe, it, expect } from 'vitest';
 import { registerEndpoint } from '@nuxt/test-utils/runtime';

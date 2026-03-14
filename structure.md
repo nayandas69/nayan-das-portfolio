@@ -1,9 +1,10 @@
 ## 📁 My Structure
 
-This is the structure of my simple portfolio ...
+This is the directory structure of **nayan-das-portfolio**, a simple portfolio built with Nuxt.
 
 ```text
 nayan-das-portfolio/
+│
 ├── .gitattributes
 ├── .gitignore
 ├── .node-version
@@ -15,39 +16,51 @@ nayan-das-portfolio/
 ├── LICENSE
 ├── README
 ├── CLICK-ME.md
+├── structure.md
+│
 ├── nuxt.config.ts
+├── tsconfig.json
+├── vitest.config.ts
+│
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
-├── structure.md
-├── tsconfig.json
-├── vitest.config.ts
-├── __tests__/
+│
+├── __tests__/                # Unit tests
 │   ├── components/
 │   │   ├── AppFooter.test.js
 │   │   ├── AppHeader.test.js
 │   │   └── ProjectCard.test.js
+│   │
 │   └── composables/
 │       ├── useBlogPosts.test.js
 │       ├── useGithubRepos.test.js
 │       └── useLanguageList.test.js
+│
 ├── app/
-│   ├── app.vue
-│   ├── error.vue
+│   ├── app.vue               # Root Vue component
+│   ├── error.vue             # Global error page
+│   ├── app.config.ts         # App configuration
+│   │
+│   ├── types/                # Global TypeScript types
+│   │   └── index.ts
+│   │
 │   ├── assets/
-│   │   └── scss/
+│   │   └── scss/             # Global styles
 │   │       ├── _mixins.scss
 │   │       ├── _shared.scss
 │   │       ├── _variables.scss
 │   │       └── main.scss
-│   ├── components/
+│   │
+│   ├── components/           # Reusable Vue components
 │   │   ├── AppFooter.vue
 │   │   ├── AppHeader.vue
 │   │   ├── AppNavbar.vue
 │   │   ├── ArticlesSection.vue
 │   │   ├── ProjectCard.vue
 │   │   ├── ProjectsSection.vue
-│   │   └── icons/
+│   │   │
+│   │   └── icons/            # SVG icon components
 │   │       ├── IconArrow.vue
 │   │       ├── IconClock.vue
 │   │       ├── IconDiscord.vue
@@ -57,20 +70,25 @@ nayan-das-portfolio/
 │   │       ├── IconRepo.vue
 │   │       ├── IconStar.vue
 │   │       └── IconX.vue
-│   ├── composables/
-│   │   ├── useBlogPosts.js
-│   │   ├── useGithubRepos.js
-│   │   └── useLanguageList.js
-│   ├── layouts/
+│   │
+│   ├── composables/          # Vue composables (logic reuse)
+│   │   ├── useBlogPosts.ts
+│   │   ├── useGithubRepos.ts
+│   │   └── useLanguageList.ts
+│   │
+│   ├── layouts/              # Nuxt layouts
 │   │   └── default.vue
-│   └── pages/
+│   │
+│   └── pages/                # Nuxt file-based routing
 │       ├── index.vue
 │       ├── about.vue
 │       ├── gallery.vue
 │       └── contact.vue
-└── public/
+│
+└── public/                   # Static assets
     ├── .gitkeep
+    ├── robots.txt
     ├── look.png
     └── images/
-        └── photo-1.avif # jpg, png, svg, etc.
+        └── photo-1.avif
 ```
