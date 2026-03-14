@@ -38,15 +38,17 @@ this page is not completed yet
           </div>
 
           <div class="row-image">
-            <NuxtImg
-              :src="item.src"
-              :alt="item.title"
-              loading="lazy"
-              format="webp"
-              quality="80"
-              width="600"
-              height="400"
-            />
+            <div class="image-reveal">
+              <NuxtImg
+                :src="item.src"
+                :alt="item.title"
+                loading="lazy"
+                format="webp"
+                quality="80"
+                width="600"
+                height="400"
+              />
+            </div>
           </div>
         </NuxtLink>
       </div>
