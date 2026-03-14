@@ -107,6 +107,7 @@ export default defineNuxtConfig({
   /* ── Sitemap Configuration ───────────────────────── */
   sitemap: {
     zeroRuntime: true,
+    discoverImages: true,
   },
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
