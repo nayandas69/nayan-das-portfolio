@@ -70,7 +70,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { useBlogPosts } from '~/composables/useBlogPosts';
   import IconArrow from '~/components/icons/IconArrow.vue';
   import IconClock from '~/components/icons/IconClock.vue';
@@ -82,7 +82,7 @@
    * Formats an ISO date string to a human-readable format.
    * Example: "2026-01-30" => "Jan 30, 2026"
    */
-  function formatDate(dateStr) {
+  function formatDate(dateStr: string) {
     try {
       return new Date(dateStr).toLocaleDateString('en-US', {
         year: 'numeric',

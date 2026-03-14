@@ -26,20 +26,22 @@
     </nav>
 
     <!-- Bio -->
-    <!-- Short bio paragraph about who I am and what I do. Soon I add here full details for my job and company I joined -->
     <p class="header__bio motion-blur delay-300">
-      I am a developer and creator who builds open-source tools, side projects, and writes about
-      code. I enjoy crafting software that solves real problems and sharing what I learn along the
-      way. I joined a gaming company as Backend Leader, which is a fun new adventure!
+      {{ profile.bio }}
     </p>
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import IconGithub from '~/components/icons/IconGithub.vue';
   import IconX from '~/components/icons/IconX.vue';
   import IconDiscord from '~/components/icons/IconDiscord.vue';
   import IconMail from '~/components/icons/IconMail.vue';
+
+  /**
+   * Access centralized profile info from app.config.ts
+   */
+  const { profile } = useAppConfig();
 
   /**
    * Social link definitions — each with label, url, and icon component.
@@ -62,7 +64,7 @@
     },
     {
       label: 'email',
-      url: 'mailto:nayanchandradas@hotmail.com',
+      url: `mailto:${profile.email}`,
       icon: IconMail,
     },
   ];
