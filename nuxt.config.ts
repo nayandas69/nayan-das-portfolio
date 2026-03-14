@@ -96,7 +96,7 @@ export default defineNuxtConfig({
   },
 
   /* ── Modules ────────────────────────────────────── */
-  modules: ['@nuxt/test-utils/module', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/test-utils/module', '@nuxtjs/sitemap', '@nuxt/image'],
 
   /* ── Site URL for sitemap generation ────────────── */
   // @ts-ignore - 'site' property from @nuxtjs/sitemap
