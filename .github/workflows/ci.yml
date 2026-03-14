@@ -7,7 +7,7 @@
 # Steps run sequentially so failures surface in a logical
 # order: format -> test -> build.
 #
-# Matrix: Node 20 / 22 / 24 (LTS and Current)
+# Matrix: Node 24 (Matching package.json)
 # -----------------------------------------------------------
 
 name: CI
@@ -34,7 +34,7 @@ jobs:
       # Run every node version even if one fails
       fail-fast: false
       matrix:
-        node-version: [20, 22, 24]
+        node-version: [24]
 
     steps:
       # ---- Checkout ----
