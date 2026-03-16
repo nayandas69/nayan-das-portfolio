@@ -104,14 +104,10 @@ export default defineNuxtConfig({
     url: 'https://nayan-das-portfolio-navy.vercel.app',
   },
 
-  /* ── Route Rules for SWR / ISR ───────────────────── */
+  /* ── Route Rules for Full SSR ────────────────────── */
   routeRules: {
-    // Home page: Refresh data on every request (v0.1.0 behavior)
-    '/': { swr: false },
-    // Other pages can stay static if they don't fetch dynamic data
-    '/about': { prerender: true },
-    '/contact': { prerender: true },
-    '/gallery': { prerender: true },
+    // All routes use SSR (no static generation)
+    '/**': { ssr: true },
   },
 
   /* ── Sitemap Configuration ───────────────────────── */
@@ -119,14 +115,6 @@ export default defineNuxtConfig({
     zeroRuntime: true,
     discoverImages: true,
     autoLastmod: true,
-  },
-
-  /* ── Nitro configuration ─────────────────────────── */
-  nitro: {
-    prerender: {
-      // Routes are now handled by routeRules, but we can keep crawlLinks
-      crawlLinks: true,
-    },
   },
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
