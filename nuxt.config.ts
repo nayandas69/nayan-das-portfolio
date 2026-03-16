@@ -106,8 +106,8 @@ export default defineNuxtConfig({
 
   /* ── Route Rules for SWR / ISR ───────────────────── */
   routeRules: {
-    // Home page: Refresh data in the background every 10 minutes
-    '/': { swr: 600 },
+    // Home page: Refresh data on every request (v0.1.0 behavior)
+    '/': { swr: false },
     // Other pages can stay static if they don't fetch dynamic data
     '/about': { prerender: true },
     '/contact': { prerender: true },
