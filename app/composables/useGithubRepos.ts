@@ -29,6 +29,7 @@ export function useGithubRepos(username?: string, limit?: number) {
       $fetch(apiUrl, {
         params: {
           sort: 'pushed',
+          direction: 'desc',
           per_page: targetLimit,
           type: 'public',
         },
