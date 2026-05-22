@@ -28,12 +28,12 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "nuxt": "^4.3.1",
+    "nuxt": "^4.4.2",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },
   "devDependencies": {
-    "@nuxt/image": "^1.9.0",
+    "@nuxt/image": "^2.0.0",
     "@nuxt/test-utils": "^4.0.0",
     "@nuxtjs/sitemap": "^7.6.0",
     "@types/node": "^25.3.3",
