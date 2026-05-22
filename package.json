@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@nuxt/image": "^2.0.0",
-    "@nuxt/test-utils": "^4.0.0",
+    "@nuxt/test-utils": "^4.0.3",
     "@nuxtjs/sitemap": "^7.6.0",
     "@types/node": "^25.5.0",
     "@vue/test-utils": "^2.4.6",
@@ -42,6 +42,6 @@
     "prettier": "^3.8.1",
     "sass-embedded": "^1.98.0",
     "sharp": "^0.33.5",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.7"
   }
 }
