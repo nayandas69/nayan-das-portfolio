@@ -119,9 +119,9 @@
     font-size: 0.8125rem;
     color: $color-muted;
     line-height: 1.5;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    @include line-clamp(2);
+    /* Reserve space for 2 lines so cards stay aligned in the grid */
+    min-height: 2.4375rem;
     flex: 1;
   }
 
