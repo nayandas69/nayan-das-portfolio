@@ -19,7 +19,7 @@
       </p>
 
       <!-- Sub text -->
-      <p class="error-page__sub">this page ain't it. go back home and lics the real stuff.</p>
+      <p class="error-page__sub">this page ain't it. go back home and check out the real stuff.</p>
 
       <!-- Back home button -->
       <button class="error-page__btn" @click="goHome">take me home</button>
