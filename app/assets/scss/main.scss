@@ -259,3 +259,34 @@ code,
     animation-delay: #{$i * 0.1}s;
   }
 }
+
+// ── Reduced motion ──────────────────────────────────
+// Respect users who prefer reduced motion. Animations and
+// transitions are neutralized while final states stay visible
+// (opacity: 1, no blur/offset) so no content gets stuck hidden.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  // Entrance-animation helpers must not leave content faded/blurred out.
+  .fade-up,
+  .motion-blur,
+  .elegant-fade-up,
+  .slide-in-left,
+  .slide-in-right,
+  .host-fade-up {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
