@@ -30,7 +30,7 @@
   "dependencies": {
     "nuxt": "^4.4.2",
     "vue": "^3.5.29",
-    "vue-router": "^5.0.3"
+    "vue-router": "^5.1.0"
   },
   "devDependencies": {
     "@nuxt/image": "^2.0.0",
