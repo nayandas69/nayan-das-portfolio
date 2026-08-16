@@ -22,20 +22,19 @@ this page is not completed yet
       </div>
 
       <div class="gallery-list">
-        <NuxtLink
+        <figure
           v-for="(item, index) in galleryItems"
           :key="index"
-          to="#"
           class="gallery-row host-fade-up"
           :style="{ transitionDelay: `${(index + 2) * 100}ms` }"
         >
-          <div class="row-info">
+          <figcaption class="row-info">
             <span class="row-index">0{{ index + 1 }}</span>
-            <div class="title-group">
+            <span class="title-group">
               <h3 class="row-title">{{ item.title }}</h3>
               <span class="row-category">{{ item.category }}</span>
-            </div>
-          </div>
+            </span>
+          </figcaption>
 
           <div class="row-image">
             <div class="image-reveal">
@@ -50,7 +49,7 @@ this page is not completed yet
               />
             </div>
           </div>
-        </NuxtLink>
+        </figure>
       </div>
     </section>
 
@@ -188,36 +187,36 @@ this page is not completed yet
     max-width: 1100px;
     margin: 0 auto;
     background-color: transparent;
-    color: #a1a1aa;
-    font-family: 'Inter', sans-serif;
+    color: $color-muted;
+    font-family: $font-body;
   }
 
   // ── Header Styling (Matching About Page) ───────
   .gallery-header {
     margin-bottom: 5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid $color-border;
   }
 
   .page-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    color: #ffffff;
+    color: $color-text;
     margin: 0 0 0.5rem 0;
     letter-spacing: -0.04em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: $font-mono;
   }
 
   .role-subtitle {
     font-size: 1.125rem;
-    color: #ffffff;
+    color: $color-text;
     margin: 0 0 1.25rem 0;
     font-weight: 500;
   }
 
   .page-desc {
     font-size: 1.05rem;
-    color: #71717a;
+    color: $color-muted;
     max-width: 650px;
     line-height: 1.7;
   }
@@ -227,7 +226,7 @@ this page is not completed yet
     margin-bottom: 10rem;
 
     &.p-top-md {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid $color-border;
       padding-top: 5rem;
     }
   }
@@ -239,7 +238,7 @@ this page is not completed yet
       font-size: 0.8125rem;
       font-weight: 600;
       letter-spacing: 0.1em;
-      color: #ffffff;
+      color: $color-text;
       text-transform: uppercase;
       opacity: 0.8;
       display: flex;
@@ -250,7 +249,7 @@ this page is not completed yet
         content: '';
         height: 1px;
         flex: 1;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+        background: linear-gradient(90deg, $color-border, transparent);
       }
     }
   }
@@ -265,18 +264,18 @@ this page is not completed yet
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    margin: 0;
     padding: 4rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    text-decoration: none;
+    border-bottom: 1px solid $color-border;
     color: inherit;
     align-items: center;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-      border-bottom-color: rgba(255, 255, 255, 0.2);
+      border-bottom-color: $color-muted;
 
       .row-title {
-        color: #ffffff;
+        color: $color-text;
         transform: translateX(15px);
       }
 
@@ -300,8 +299,8 @@ this page is not completed yet
 
   .row-index {
     font-size: 0.75rem;
-    color: #3f3f46;
-    font-family: ui-monospace, SFMono-Regular, monospace;
+    color: $color-muted;
+    font-family: $font-mono;
     font-weight: 600;
   }
 
@@ -316,17 +315,17 @@ this page is not completed yet
     font-weight: 500;
     margin: 0;
     letter-spacing: -0.03em;
-    color: #d4d4d8;
+    color: $color-text;
     line-height: 1.1;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .row-category {
     font-size: 0.75rem;
-    color: #71717a;
+    color: $color-muted;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-family: $font-mono;
     opacity: 0.4;
     transform: translateY(10px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -338,8 +337,8 @@ this page is not completed yet
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background-color: #09090b;
+    border: 1px solid $color-border;
+    background-color: $color-bg;
     box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
   }
 
@@ -363,8 +362,6 @@ this page is not completed yet
   }
 
   .photo-card {
-    cursor: pointer;
-    text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
@@ -372,7 +369,7 @@ this page is not completed yet
     &:hover {
       .photo-wrapper {
         transform: translateY(-8px);
-        border-color: rgba(255, 255, 255, 0.3);
+        border-color: $color-muted;
         box-shadow:
           0 30px 60px -15px rgba(0, 0, 0, 0.7),
           0 0 20px rgba(255, 255, 255, 0.05);
@@ -385,7 +382,7 @@ this page is not completed yet
         opacity: 1;
       }
       .photo-title {
-        color: #ffffff;
+        color: $color-text;
       }
     }
   }
@@ -394,10 +391,10 @@ this page is not completed yet
     position: relative;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background-color: #09090b;
+    background-color: $color-bg;
     margin-bottom: 2rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid $color-border;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
 
@@ -421,7 +418,7 @@ this page is not completed yet
 
     .photo-tag {
       font-size: 0.65rem;
-      color: #ffffff;
+      color: $color-text;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -440,7 +437,7 @@ this page is not completed yet
       font-size: 1.125rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: #e4e4e7;
+      color: $color-text;
       line-height: 1.2;
       letter-spacing: -0.01em;
       transition: color 0.3s ease;
@@ -453,8 +450,8 @@ this page is not completed yet
     }
     .photo-date {
       font-size: 0.75rem;
-      color: #52525b;
-      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: $color-muted;
+      font-family: $font-mono;
       text-transform: lowercase;
     }
   }

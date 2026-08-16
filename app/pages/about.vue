@@ -45,7 +45,6 @@ this page is not completed yet
                   >bluesky ↗</a
                 >
               </li>
-              <li><a href="#" class="nav-link">resume.pdf ↓</a></li>
             </ul>
           </nav>
         </aside>
@@ -179,18 +178,8 @@ this page is not completed yet
   .about-container {
     min-height: 100vh;
     background-color: transparent;
-    color: #a1a1aa;
-    font-family:
-      'Inter',
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      'Helvetica Neue',
-      Arial,
-      sans-serif;
+    color: $color-muted;
+    font-family: $font-body;
     padding: 4rem 1.5rem 8rem 1.5rem;
     display: flex;
     justify-content: center;
@@ -205,23 +194,21 @@ this page is not completed yet
   .about-header {
     margin-bottom: 4rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid $color-border;
   }
 
   .page-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    color: #ffffff;
+    color: $color-text;
     margin: 0 0 0.5rem 0;
     letter-spacing: -0.04em;
-    font-family:
-      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-      monospace;
+    font-family: $font-mono;
   }
 
   .role-subtitle {
     font-size: 1.1rem;
-    color: #71717a;
+    color: $color-muted;
     margin: 0;
     font-weight: 400;
   }
@@ -266,8 +253,8 @@ this page is not completed yet
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #050505;
+    border: 1px solid $color-border;
+    background-color: $color-bg;
 
     &:hover .profile-img {
       filter: grayscale(0%);
@@ -295,10 +282,10 @@ this page is not completed yet
     align-items: center;
     gap: 0.75rem;
     font-size: 0.85rem;
-    color: #d4d4d8;
+    color: $color-text;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: $color-surface;
+    border: 1px solid $color-border;
     border-radius: 6px;
     backdrop-filter: blur(10px);
   }
@@ -320,8 +307,8 @@ this page is not completed yet
 
   // ── Navigation Links ───────────────────────────
   .quick-links {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: $color-surface;
+    border: 1px solid $color-border;
     border-radius: 8px;
     padding: 1.5rem;
     backdrop-filter: blur(10px);
@@ -351,7 +338,7 @@ this page is not completed yet
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #52525b;
+    color: $color-muted;
     margin: 0 0 1rem 0;
     font-weight: 600;
   }
@@ -366,7 +353,7 @@ this page is not completed yet
   }
 
   .nav-link {
-    color: #a1a1aa;
+    color: $color-muted;
     text-decoration: none;
     font-size: 0.95rem;
     transition:
@@ -375,7 +362,7 @@ this page is not completed yet
     display: block;
 
     &:hover {
-      color: #ffffff;
+      color: $color-text;
       padding-left: 5px;
     }
   }
@@ -401,18 +388,18 @@ this page is not completed yet
 
   .lead-text {
     font-size: 1.2rem !important;
-    color: #d4d4d8;
+    color: $color-text;
     line-height: 1.7 !important;
   }
 
   .highlight {
-    color: #ffffff;
+    color: $color-text;
     font-weight: 500;
   }
 
   .section-title {
     font-size: 1.1rem;
-    color: #ffffff;
+    color: $color-text;
     margin: 0 0 1rem 0;
     font-weight: 600;
     letter-spacing: 0.02em;
@@ -421,11 +408,11 @@ this page is not completed yet
   .divider {
     width: 100%;
     height: 1px;
-    background: rgba(255, 255, 255, 0.08);
+    background: $color-border;
   }
 
   .text-link {
-    color: #3b82f6;
+    color: $color-accent;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition:
@@ -433,8 +420,8 @@ this page is not completed yet
       color 0.2s ease;
 
     &:hover {
-      color: #60a5fa;
-      border-bottom-color: #60a5fa;
+      color: $color-accent-dim;
+      border-bottom-color: $color-accent-dim;
     }
   }
 </style>
