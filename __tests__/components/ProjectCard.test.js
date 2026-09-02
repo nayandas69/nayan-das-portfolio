@@ -33,7 +33,7 @@ const minimalRepo = {
   forks: 0,
   url: 'https://github.com/nayandas69/tiny-lib',
   homepage: null,
-  pushedAt: '2025-01-01T00:00:00Z',
+  pushedAt: null,
   topics: [],
 };
 

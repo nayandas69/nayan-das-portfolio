@@ -21,7 +21,13 @@
 
     <!-- Repo cards grid -->
     <div v-else-if="repos?.length" class="projects__grid">
-      <ProjectCard v-for="repo in repos" :key="repo.name" :repo="repo" />
+      <ProjectCard
+        v-for="(repo, i) in repos"
+        :key="repo.name"
+        :repo="repo"
+        :style="{ animationDelay: `${i * 60}ms` }"
+        class="fade-up"
+      />
     </div>
 
     <!-- Empty state fallback -->
@@ -89,10 +95,15 @@
     svg {
       width: 14px;
       height: 14px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &:hover {
       color: $color-accent;
+
+      svg {
+        transform: translateX(4px);
+      }
     }
   }
 </style>

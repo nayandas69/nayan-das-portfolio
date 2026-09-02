@@ -34,7 +34,6 @@ body {
 
   // Basic fade-in to clear the opacity:0 set in nuxt.config.ts
   animation: bodyFadeIn 0.3s ease-out forwards;
-  will-change: opacity;
 }
 
 @keyframes bodyFadeIn {
@@ -74,6 +73,43 @@ h3 {
 p {
   color: $color-muted;
   line-height: 1.6;
+}
+
+// ── Ambient aura background (all pages) ──────────────
+// Soft accent glows behind the content. Painted behind everything,
+// GPU-cheap (transform-only drift), and neutralized for reduced motion.
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem circle at 18% -5%, rgba($color-accent, 0.08), transparent 60%),
+    radial-gradient(52rem circle at 88% 12%, rgba($color-accent, 0.06), transparent 60%);
+  animation: auraDrift 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes auraDrift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0);
+  }
+  to {
+    transform: translate3d(1.5%, 2%, 0);
+  }
+}
+
+// ── Gradient headline text (shared across pages) ─────
+.gradient-text {
+  background: linear-gradient(
+    120deg,
+    $color-text 20%,
+    color.adjust($color-accent, $lightness: 18%) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 // ── Links ───────────────────────────────────────────

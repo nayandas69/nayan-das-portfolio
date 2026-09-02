@@ -214,7 +214,9 @@
     font-family: $font-mono;
     font-size: 0.8125rem;
     color: $color-muted;
-    @include transition(color);
+    transition:
+      color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
     svg {
       width: 16px;
@@ -223,7 +225,8 @@
     }
 
     &:hover {
-      color: $color-text;
+      color: $color-accent;
+      transform: translateY(-2px);
     }
   }
 
@@ -307,14 +310,24 @@
     font-weight: 700;
     font-size: 0.9375rem;
     text-decoration: none;
-    @include transition(all);
     margin-top: $space-2;
+    transition:
+      background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+    }
 
     &.discord-btn {
       background: #5865f2;
       color: #ffffff;
       &:hover {
         background: color-mix(in srgb, #5865f2, white 10%);
+        box-shadow: 0 8px 24px -6px rgba(88, 101, 242, 0.55);
       }
     }
 
@@ -324,6 +337,7 @@
       &:hover {
         background: $color-accent;
         color: #ffffff;
+        box-shadow: 0 8px 24px -6px rgba($color-accent, 0.6);
       }
     }
   }

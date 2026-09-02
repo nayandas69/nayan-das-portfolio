@@ -9,7 +9,7 @@ this page is not completed yet
     <div class="content-wrapper">
       <!-- Top Minimal Header -->
       <header class="about-header elegant-fade-up delay-100">
-        <h1 class="page-title">/about</h1>
+        <h1 class="page-title gradient-text">/about</h1>
         <p class="role-subtitle">Full-Stack Engineer & Cross-Platform Creator</p>
       </header>
 
@@ -255,6 +255,14 @@ this page is not completed yet
     position: relative;
     border: 1px solid $color-border;
     background-color: $color-bg;
+    transition:
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
+
+    &:hover {
+      border-color: rgba($color-accent, 0.45);
+      box-shadow: 0 0 32px rgba($color-accent, 0.15);
+    }
 
     &:hover .profile-img {
       filter: grayscale(0%);
