@@ -8,7 +8,7 @@ this page is not completed yet
   <main class="gallery-wrapper">
     <!-- Breadcrumb-style Header Matching About Page -->
     <div class="gallery-header host-fade-up delay-100">
-      <h1 class="page-title">/gallery</h1>
+      <h1 class="page-title gradient-text">/gallery</h1>
       <p class="role-subtitle">Visual Archive & Personal Photography</p>
       <p class="page-desc">
         A curated collection of digital craft and moments captured through my lens.
@@ -288,6 +288,13 @@ this page is not completed yet
         filter: grayscale(0%) brightness(1.1);
         transform: scale(1.08);
       }
+
+      .row-image {
+        border-color: rgba($color-accent, 0.4);
+        box-shadow:
+          0 20px 50px -20px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba($color-accent, 0.14);
+      }
     }
   }
 
@@ -369,10 +376,10 @@ this page is not completed yet
     &:hover {
       .photo-wrapper {
         transform: translateY(-8px);
-        border-color: $color-muted;
+        border-color: rgba($color-accent, 0.45);
         box-shadow:
           0 30px 60px -15px rgba(0, 0, 0, 0.7),
-          0 0 20px rgba(255, 255, 255, 0.05);
+          0 0 28px rgba($color-accent, 0.15);
 
         img {
           transform: scale(1.1);

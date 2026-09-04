@@ -6,7 +6,7 @@
 <template>
   <header class="header">
     <!-- Name -->
-    <h1 class="header__name motion-blur delay-100">{{ profile.name }}</h1>
+    <h1 class="header__name gradient-text motion-blur delay-100">{{ profile.name }}</h1>
 
     <!-- Social links row -->
     <nav class="header__nav motion-blur delay-200" aria-label="Social links">
@@ -106,7 +106,9 @@
     font-family: $font-mono;
     font-size: 0.8125rem;
     color: $color-muted;
-    @include transition(color);
+    transition:
+      color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
     svg {
       width: 16px;
@@ -115,7 +117,8 @@
     }
 
     &:hover {
-      color: $color-text;
+      color: $color-accent;
+      transform: translateY(-2px);
     }
   }
 

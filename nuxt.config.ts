@@ -40,6 +40,10 @@ export default defineNuxtConfig({
         } as Record<string, unknown>,
       },
     },
+    /* Allow the preview's external hostname during dev */
+    server: {
+      allowedHosts: true,
+    },
   },
 
   /* ── App head — SEO, fonts, viewport ────────────── */
@@ -115,6 +119,12 @@ export default defineNuxtConfig({
     zeroRuntime: true,
     discoverImages: true,
     autoLastmod: true,
+  },
+
+  /* ── Dev server — bind all interfaces, allow preview hostname ── */
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
   },
 
   /* ── Compatibility date (required by Nuxt 4) ───── */
