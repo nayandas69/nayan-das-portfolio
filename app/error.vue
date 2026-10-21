@@ -123,7 +123,7 @@
   .error-page__sub {
     font-family: $font-mono;
     font-size: 0.8125rem;
-    color: color.adjust($color-muted, $lightness: -12%);
+    color: color-mix(in srgb, $color-muted 88%, black);
     margin-bottom: $space-7;
   }
 

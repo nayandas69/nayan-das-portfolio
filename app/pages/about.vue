@@ -260,8 +260,8 @@ this page is not completed yet
       box-shadow 0.4s ease;
 
     &:hover {
-      border-color: rgba($color-accent, 0.45);
-      box-shadow: 0 0 32px rgba($color-accent, 0.15);
+      border-color: color-mix(in srgb, $color-accent 45%, transparent);
+      box-shadow: 0 0 32px color-mix(in srgb, $color-accent 15%, transparent);
     }
 
     &:hover .profile-img {

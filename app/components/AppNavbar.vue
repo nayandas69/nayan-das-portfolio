@@ -71,10 +71,10 @@
 
   .navbar-capsule {
     pointer-events: auto; /* Enable clicks on the menu itself */
-    background: rgba($color-surface, 0.75);
+    background: color-mix(in srgb, $color-surface 75%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba($color-border, 0.9);
+    border: 1px solid color-mix(in srgb, $color-border 90%, transparent);
     border-radius: $space-6;
     padding: $space-2 0.625rem;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
@@ -148,7 +148,7 @@
 
     &:hover {
       color: $color-text;
-      background: rgba(255, 255, 255, 0.06);
+      background: color-mix(in srgb, $color-text 6%, transparent);
 
       .nav-link__icon svg {
         transform: translateY(-2px);
@@ -156,12 +156,12 @@
     }
 
     &.is-active {
-      color: #ffffff;
+      color: $color-text;
       font-weight: 600;
-      background: rgba($color-accent, 0.14);
+      background: color-mix(in srgb, $color-accent 14%, transparent);
       box-shadow:
-        0 4px 18px rgba($color-accent, 0.25),
-        inset 0 0 0 1px rgba($color-accent, 0.25);
+        0 4px 18px color-mix(in srgb, $color-accent 25%, transparent),
+        inset 0 0 0 1px color-mix(in srgb, $color-accent 25%, transparent);
 
       .nav-link__icon {
         color: $color-accent;

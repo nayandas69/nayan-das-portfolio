@@ -204,7 +204,7 @@
     font-family: $font-mono;
     font-size: 0.6875rem;
     color: $color-accent;
-    background: color.change($color-accent, $alpha: 0.08);
+    background: color-mix(in srgb, $color-accent 8%, transparent);
     padding: 2px 8px;
     border-radius: 4px;
   }

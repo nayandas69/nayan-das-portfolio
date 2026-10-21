@@ -14,6 +14,9 @@
 
     <!-- Floating Bottom Navigation -->
     <AppNavbar />
+
+    <!-- Light/dark switch, fixed in the top corner -->
+    <ThemeToggle />
   </div>
 </template>
 

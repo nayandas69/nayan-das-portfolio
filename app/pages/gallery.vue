@@ -290,10 +290,10 @@ this page is not completed yet
       }
 
       .row-image {
-        border-color: rgba($color-accent, 0.4);
+        border-color: color-mix(in srgb, $color-accent 40%, transparent);
         box-shadow:
           0 20px 50px -20px rgba(0, 0, 0, 0.5),
-          0 0 30px rgba($color-accent, 0.14);
+          0 0 30px color-mix(in srgb, $color-accent 14%, transparent);
       }
     }
   }
@@ -376,10 +376,10 @@ this page is not completed yet
     &:hover {
       .photo-wrapper {
         transform: translateY(-8px);
-        border-color: rgba($color-accent, 0.45);
+        border-color: color-mix(in srgb, $color-accent 45%, transparent);
         box-shadow:
           0 30px 60px -15px rgba(0, 0, 0, 0.7),
-          0 0 28px rgba($color-accent, 0.15);
+          0 0 28px color-mix(in srgb, $color-accent 15%, transparent);
 
         img {
           transform: scale(1.1);

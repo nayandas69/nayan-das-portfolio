@@ -1,0 +1,39 @@
+// ─────────────────────────────────────────────────────
+// Themes — dark (default) and light palettes.
+//
+// Every semantic color token is a CSS custom property so the palette can swap
+// at runtime. _variables.scss maps the Sass token names onto these properties,
+// so components keep using `$color-bg` etc. unchanged.
+//
+// Dark is the default (no attribute needed); the toggle sets
+// `<html data-theme="light">`. `color-scheme` also switches native UI
+// (scrollbars, form controls) to match.
+//
+// Imported once, globally, by main.scss — never forwarded through _shared.scss,
+// which is injected into every component and would duplicate this output.
+// ─────────────────────────────────────────────────────
+
+:root {
+  color-scheme: dark;
+
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: #232323;
+  --color-text: #ededed;
+  --color-muted: #888888;
+  --color-accent: #3b82f6;
+  --color-accent-dim: #2563eb;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #f6f6f7;
+  --color-surface: #ffffff;
+  --color-border: #e3e3e8;
+  --color-text: #17171c;
+  --color-muted: #5a5a66;
+  // Slightly deeper blue so links/highlights keep contrast on a light surface.
+  --color-accent: #2563eb;
+  --color-accent-dim: #1d4ed8;
+}

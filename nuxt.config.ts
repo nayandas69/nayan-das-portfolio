@@ -53,6 +53,13 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Nayan Das — Developer & Creator',
+      script: [
+        {
+          /* Applies a stored light theme before first paint so returning
+             light-mode visitors never see a dark flash. Dark is the default. */
+          innerHTML: `(function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.dataset.theme='light';}}catch(e){}})();`,
+        },
+      ],
       meta: [
         {
           name: 'description',

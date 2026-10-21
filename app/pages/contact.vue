@@ -273,7 +273,7 @@
     @include transition(all);
 
     &:hover {
-      border-color: rgba($color-accent, 0.4);
+      border-color: color-mix(in srgb, $color-accent 40%, transparent);
       transform: translateY(-2px);
       box-shadow: 0 12px 40px -15px rgba(0, 0, 0, 0.6);
     }
@@ -288,7 +288,7 @@
   .card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: $color-text;
     margin: 0;
   }
 
@@ -337,7 +337,7 @@
       &:hover {
         background: $color-accent;
         color: #ffffff;
-        box-shadow: 0 8px 24px -6px rgba($color-accent, 0.6);
+        box-shadow: 0 8px 24px -6px color-mix(in srgb, $color-accent 60%, transparent);
       }
     }
   }
@@ -352,7 +352,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.75rem;
-    color: #a1a1aa;
+    color: $color-muted;
     font-family: $font-mono;
     background: rgba(16, 185, 129, 0.05);
     padding: 0.4rem 0.75rem;
@@ -365,8 +365,8 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 0.75rem;
-    background: rgba($color-accent, 0.1);
-    border: 1px solid rgba($color-accent, 0.2);
+    background: color-mix(in srgb, $color-accent 10%, transparent);
+    border: 1px solid color-mix(in srgb, $color-accent 20%, transparent);
     border-radius: 100px;
     font-size: 0.75rem;
     font-weight: 600;

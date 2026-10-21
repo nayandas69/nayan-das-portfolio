@@ -4,13 +4,17 @@
 // ─────────────────────────────────────────────────────
 
 // ── Color palette ────────────────────────────────────
-$color-bg: #0a0a0a; // near-black background
-$color-surface: #141414; // card / elevated surface
-$color-border: #232323; // subtle border
-$color-text: #ededed; // primary text (off-white)
-$color-muted: #888888; // secondary / muted text
-$color-accent: #3b82f6; // blue accent for links & highlights
-$color-accent-dim: #2563eb; // hover state for accent
+// Semantic tokens point at CSS custom properties (values in _themes.scss) so
+// the palette can switch between dark and light at runtime. Sass sees opaque
+// strings here — build tints with color-mix() instead of Sass color functions
+// (rgba($token, …) / color.adjust() cannot resolve a var()).
+$color-bg: var(--color-bg); // page background
+$color-surface: var(--color-surface); // card / elevated surface
+$color-border: var(--color-border); // subtle border
+$color-text: var(--color-text); // primary text
+$color-muted: var(--color-muted); // secondary / muted text
+$color-accent: var(--color-accent); // blue accent for links & highlights
+$color-accent-dim: var(--color-accent-dim); // hover state for accent
 
 // ── Typography ───────────────────────────────────────
 $font-heading: 'Space Grotesk', system-ui, sans-serif;
