@@ -53,6 +53,7 @@ export function useGithubRepos(username?: string, limit?: number) {
           homepage: repo.homepage,
           pushedAt: repo.pushed_at,
           topics: repo.topics || [],
+          archived: repo.archived === true,
         }));
       },
 
