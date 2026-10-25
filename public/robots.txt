@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nayan-das-portfolio-navy.vercel.app
+Host: https://nayan-das-portfolio-nine.vercel.app
 
 # Sitemaps
-Sitemap: https://nayan-das-portfolio-navy.vercel.app/sitemap.xml
+Sitemap: https://nayan-das-portfolio-nine.vercel.app/sitemap.xml
