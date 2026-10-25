@@ -14,9 +14,12 @@
   >
     <!-- Top row: icon + name + public badge -->
     <div class="project-card__head">
-      <IconRepo class="project-card__icon" />
+      <IconRepo class="project-card__icon" :class="{ 'project-card__icon--archived': repo.archived }" />
       <span class="project-card__name">{{ repo.name }}</span>
-      <span class="project-card__badge">Public</span>
+      <!-- Archived repos show a "Public Archive" badge, like GitHub does -->
+      <span class="project-card__badge" :class="{ 'project-card__badge--archived': repo.archived }">
+        {{ repo.archived ? 'Public Archive' : 'Public' }}
+      </span>
     </div>
 
     <!-- Description (2 line clamp) -->
@@ -105,6 +108,11 @@
       .project-card__icon {
         color: $color-accent;
       }
+
+      /* Archived repos keep their gray archive icon on hover */
+      .project-card__icon--archived {
+        color: $color-muted;
+      }
     }
   }
 
@@ -143,6 +151,13 @@
     padding: 1px 8px;
     margin-left: auto;
     flex-shrink: 0;
+
+    /* Archived repos: GitHub's yellow "Public Archive" style (theme-aware) */
+    &--archived {
+      color: $badge-archived-text;
+      background: $badge-archived-bg;
+      border-color: $badge-archived-border;
+    }
   }
 
   /* ── Description ───────────────────────────────────── */
