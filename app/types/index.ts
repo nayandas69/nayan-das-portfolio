@@ -12,6 +12,8 @@ export interface GithubRepo {
   homepage?: string;
   pushedAt: string;
   topics: string[];
+  /** True when the repo has been archived on GitHub (read-only, no longer active) */
+  archived: boolean;
 }
 
 export interface BlogPost {
