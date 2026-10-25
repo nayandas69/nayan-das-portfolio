@@ -382,6 +382,7 @@ this page is not completed yet
           0 0 28px color-mix(in srgb, $color-accent 15%, transparent);
 
         img {
+          filter: grayscale(0%) brightness(1.1);
           transform: scale(1.1);
         }
       }
@@ -409,6 +410,8 @@ this page is not completed yet
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* Same treatment as section 1: grayscale until hovered */
+      filter: grayscale(100%) brightness(0.65);
       transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
