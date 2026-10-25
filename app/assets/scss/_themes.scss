@@ -23,6 +23,11 @@
   --color-muted: #888888;
   --color-accent: #3b82f6;
   --color-accent-dim: #2563eb;
+
+  // "Public Archive" badge (GitHub Primer attention palette, dark theme)
+  --badge-archived-bg: rgba(210, 153, 34, 0.15);
+  --badge-archived-text: #d29922;
+  --badge-archived-border: rgba(210, 153, 34, 0.4);
 }
 
 :root[data-theme='light'] {
@@ -36,4 +41,9 @@
   // Slightly deeper blue so links/highlights keep contrast on a light surface.
   --color-accent: #2563eb;
   --color-accent-dim: #1d4ed8;
+
+  // "Public Archive" badge (GitHub Primer attention palette, light theme)
+  --badge-archived-bg: #fff8c5;
+  --badge-archived-text: #9a6700;
+  --badge-archived-border: rgba(84, 48, 5, 0.2);
 }

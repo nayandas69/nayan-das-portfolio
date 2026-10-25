@@ -15,6 +15,9 @@ $color-text: var(--color-text); // primary text
 $color-muted: var(--color-muted); // secondary / muted text
 $color-accent: var(--color-accent); // blue accent for links & highlights
 $color-accent-dim: var(--color-accent-dim); // hover state for accent
+$badge-archived-bg: var(--badge-archived-bg); // archived repo badge fill
+$badge-archived-text: var(--badge-archived-text); // archived repo badge text
+$badge-archived-border: var(--badge-archived-border); // archived repo badge border
 
 // ── Typography ───────────────────────────────────────
 $font-heading: 'Space Grotesk', system-ui, sans-serif;
