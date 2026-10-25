@@ -14,7 +14,10 @@
   >
     <!-- Top row: icon + name + public badge -->
     <div class="project-card__head">
-      <IconRepo class="project-card__icon" :class="{ 'project-card__icon--archived': repo.archived }" />
+      <IconRepo
+        class="project-card__icon"
+        :class="{ 'project-card__icon--archived': repo.archived }"
+      />
       <span class="project-card__name">{{ repo.name }}</span>
       <!-- Archived repos show a "Public Archive" badge, like GitHub does -->
       <span class="project-card__badge" :class="{ 'project-card__badge--archived': repo.archived }">
