@@ -1,30 +1,30 @@
 <!--
   components/AppNavbar.vue
-  Floating capsule-style bottom navigation.
-  Each item shows an icon + text label; the active item gets an accent glow.
+  Classic navigation licks: glass capsule, soft blue glow, active label only.
 -->
 
 <template>
   <nav class="navbar-wrapper" aria-label="Main navigation">
     <div class="navbar-capsule">
       <ul class="navbar-links">
-        <li v-for="(item, i) in navItems" :key="item.label" class="nav-item" :style="{ '--i': i }">
-          <!-- Internal Link -->
+        <li
+          v-for="(item, index) in navItems"
+          :key="item.path"
+          class="nav-item"
+          :style="{ '--i': index }"
+        >
           <NuxtLink
-            v-if="!item.external"
             :to="item.path"
+            :aria-label="item.label"
             class="nav-link"
-            exact-active-class="is-active"
+            :class="{ 'is-active': index === activeIndex }"
+            :aria-current="
+              index === activeIndex ? (route.path === item.path ? 'page' : 'location') : undefined
+            "
           >
-            <span class="nav-link__icon"><component :is="item.icon" /></span>
+            <span class="nav-link__icon" aria-hidden="true"><component :is="item.icon" /></span>
             <span class="nav-link__label">{{ item.label }}</span>
           </NuxtLink>
-
-          <!-- External Link -->
-          <a v-else :href="item.path" class="nav-link" target="_blank" rel="noopener noreferrer">
-            <span class="nav-link__icon"><component :is="item.icon" /></span>
-            <span class="nav-link__label">{{ item.label }}</span>
-          </a>
         </li>
       </ul>
     </div>
@@ -38,28 +38,26 @@
   import IconContact from '~/components/icons/IconMail.vue';
   import IconAbout from '~/components/icons/IconAbout.vue';
 
-  /**
-   * Access centralized config
-   */
-  const { api } = useAppConfig();
-
-  /**
-   * Navigation links — each with label, path, and icon component.
-   * Blog is an external URL. Order: Home, Blog, Gallery, Contact, About.
-   */
+  const route = useRoute();
   const navItems = [
-    { label: 'Home', path: '/', external: false, icon: IconHome },
-    { label: 'Blog', path: api.blogverse.replace('/api/v1', ''), external: true, icon: IconBlog },
-    { label: 'Gallery', path: '/gallery', external: false, icon: IconGallery },
-    { label: 'Contact', path: '/contact', external: false, icon: IconContact },
-    { label: 'About', path: '/about', external: false, icon: IconAbout },
+    { label: 'Home', path: '/', icon: IconHome },
+    { label: 'Blog', path: '/blog', icon: IconBlog },
+    { label: 'Gallery', path: '/gallery', icon: IconGallery },
+    { label: 'Contact', path: '/contact', icon: IconContact },
+    { label: 'About', path: '/about', icon: IconAbout },
   ];
+  const activeIndex = computed(() =>
+    navItems.findIndex(
+      (item) =>
+        route.path === item.path || (item.path !== '/' && route.path.startsWith(`${item.path}/`))
+    )
+  );
 </script>
 
 <style lang="scss" scoped>
   .navbar-wrapper {
     position: fixed;
-    bottom: $space-6;
+    bottom: calc(#{$space-6} + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     z-index: 100;
@@ -71,6 +69,7 @@
 
   .navbar-capsule {
     pointer-events: auto; /* Enable clicks on the menu itself */
+    max-width: 100%;
     background: color-mix(in srgb, $color-surface 75%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -102,6 +101,7 @@
   }
 
   .nav-item {
+    min-width: 44px;
     animation: navItemRise 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(0.12s + var(--i) * 0.06s);
     will-change: transform, opacity;
@@ -113,6 +113,8 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    min-width: 44px;
+    min-height: 44px;
     padding: 0.625rem 0.875rem;
     font-family: $font-body;
     font-size: 0.6875rem;
@@ -138,12 +140,9 @@
 
     /* Text is shown only for the active item; icons only otherwise */
     &__label {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition:
-        max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: none;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
 
     &:hover {
@@ -172,8 +171,7 @@
       }
 
       .nav-link__label {
-        max-height: 1.25rem;
-        opacity: 1;
+        display: block;
       }
     }
   }
@@ -203,7 +201,7 @@
   /* Mobile adjustments */
   @media (max-width: $bp-sm) {
     .navbar-wrapper {
-      bottom: $space-4;
+      bottom: calc(#{$space-4} + env(safe-area-inset-bottom, 0px));
     }
 
     .nav-link {

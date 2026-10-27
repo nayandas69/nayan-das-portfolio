@@ -1,7 +1,7 @@
 <!--
   pages/contact.vue
   Contact Page — Community-first with Discord, Cal.com scheduling, and Direct Mail.
-  Aligned with the Homepage layout.
+  Got fresh ideas or code licks? Pick your lane and say hey.
 -->
 
 <template>
@@ -10,29 +10,14 @@
     <header class="contact-header">
       <h1 class="contact-title motion-blur delay-100">/contact</h1>
 
-      <!-- Social links row (shared social pattern) -->
-      <nav class="contact-nav motion-blur delay-200" aria-label="Social links">
-        <a
-          v-for="link in socials"
-          :key="link.label"
-          :href="link.url"
-          class="contact-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <component :is="link.icon" />
-          <span>{{ link.label }}</span>
-        </a>
-      </nav>
-
-      <p class="contact-tagline motion-blur delay-300">
+      <p class="contact-tagline motion-blur delay-200">
         I’m currently available for new projects and speaking opportunities. Select a method below
         to start a conversation.
       </p>
     </header>
 
     <!-- Main Content Area -->
-    <section class="contact-content motion-blur delay-400">
+    <section class="contact-content motion-blur delay-300">
       <!-- 01 / Community (Discord) -->
       <div class="content-section">
         <h2 class="section-title">01 / Community</h2>
@@ -125,20 +110,8 @@
 
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import IconGithub from '~/components/icons/IconGithub.vue';
-  import IconX from '~/components/icons/IconX.vue';
-  import IconDiscord from '~/components/icons/IconDiscord.vue';
-  import IconMail from '~/components/icons/IconMail.vue';
 
   const { profile } = useAppConfig();
-
-  // --- Header Socials ---
-  const socials = [
-    { label: 'github', url: 'https://github.com/nayandas69', icon: IconGithub },
-    { label: 'x', url: 'https://x.com/nayandas69', icon: IconX },
-    { label: 'discord', url: 'https://discord.gg/u9XfHZN8K9', icon: IconDiscord },
-    { label: 'email', url: `mailto:${profile.email}`, icon: IconMail },
-  ];
 
   // --- Discord Widget Data ---
   interface DiscordWidget {
@@ -197,36 +170,6 @@
 
     @include md {
       font-size: 2.5rem;
-    }
-  }
-
-  .contact-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-4;
-    margin-bottom: $space-6;
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-2;
-    font-family: $font-mono;
-    font-size: 0.8125rem;
-    color: $color-muted;
-    transition:
-      color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-
-    svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    &:hover {
-      color: $color-accent;
-      transform: translateY(-2px);
     }
   }
 

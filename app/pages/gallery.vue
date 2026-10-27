@@ -1,7 +1,6 @@
 <!-- 
 pages/gallery.vue
-simple gallery page
-this page is not completed yet
+visual licks from my camera roll and workspace
 -->
 
 <template>
@@ -26,7 +25,7 @@ this page is not completed yet
           v-for="(item, index) in galleryItems"
           :key="index"
           class="gallery-row host-fade-up"
-          :style="{ transitionDelay: `${(index + 2) * 100}ms` }"
+          :style="{ animationDelay: `${(index + 2) * 100}ms` }"
         >
           <figcaption class="row-info">
             <span class="row-index">0{{ index + 1 }}</span>
@@ -64,7 +63,7 @@ this page is not completed yet
           v-for="(photo, index) in photographyItems"
           :key="index"
           class="photo-card host-fade-up"
-          :style="{ transitionDelay: `${(index + 1) * 100}ms` }"
+          :style="{ animationDelay: `${(index + 1) * 100}ms` }"
         >
           <div class="photo-wrapper">
             <NuxtImg

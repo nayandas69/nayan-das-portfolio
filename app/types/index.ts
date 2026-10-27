@@ -24,6 +24,7 @@ export interface BlogPost {
   tags: string[];
   readingTime: number;
   url: string;
+  headings: { id: string; text: string; depth: number }[];
 }
 
 export interface SocialLink {
@@ -37,8 +38,5 @@ export interface AppConfig {
     name: string;
     bio: string;
     email: string;
-  };
-  api: {
-    blogverse: string;
   };
 }

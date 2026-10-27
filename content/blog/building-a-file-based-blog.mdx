@@ -1,0 +1,55 @@
+---
+title: A blog that lives beside the code
+description: Keep articles in Git, render them with the portfolio, and make publishing a small, reviewable change.
+date: 2026-10-27
+tags: [Nuxt, Writing]
+---
+
+A personal blog should be easy to keep alive. When publishing requires a second dashboard, a separate deployment, and an API that must be available on every page visit, writing becomes a maintenance task. Keeping articles beside the application makes the workflow smaller: edit a file, preview it, review the change, and deploy.
+
+This portfolio uses that approach. Articles live in `content/blog/`, and their filenames become permanent URLs. The application reads the files during its build, rather than asking a remote service for the article on every visit.
+
+## Start with a small content contract
+
+Every post needs a title, a description, a publication date, and a few topics. That is enough information to build an archive, a preview on the home page, and useful search results.
+
+```yaml
+title: A useful title
+description: A short explanation of what the reader will learn.
+date: 2026-10-27
+tags: [Nuxt, Writing]
+draft: false
+```
+
+The filename supplies the slug. A file called `small-content-contract.md` becomes `/blog/small-content-contract`. Keep that name stable after publication; changing it changes links that readers may have saved.
+
+> [!TIP]
+> Write the description as an invitation to the actual article. A specific sentence helps a reader choose more than a collection of keywords does.
+
+## Give the build responsibility
+
+Content mistakes should show up before deployment. Missing metadata, impossible dates, and duplicate slugs are build errors. Drafts and future-dated articles stay out of the public index and article routes.
+
+This also creates a clear publishing rule: publication happens when a successful build includes the post. A future date does not schedule a deployment. Rebuild the site on that date to publish the article.
+
+<Callout type="important" title="Keep MDX in the trust boundary">
+
+MDX can contain executable expressions and imported components. Only compile files you trust from the repository. Visitor-submitted content belongs in a separate, sanitized rendering flow.
+
+</Callout>
+
+## Keep the reading experience quiet
+
+The archive should explain what is available. The article page should give the text room to breathe. Code needs enough contrast, horizontal scrolling, and a way to copy it without line numbers or button labels entering the clipboard.
+
+The same article metadata powers the home page and the archive. That removes a common source of drift: maintaining one title in a card and another in the actual post.
+
+## Publish in a short loop
+
+1. Create a Markdown or MDX file with the required frontmatter.
+2. Preview the page and follow the table of contents.
+3. Run the tests and production build.
+4. Review the diff, including the final URL.
+5. Deploy and check the published page.
+
+The result is a writing system that fits the way the rest of the portfolio is maintained. The source, the presentation, and the history stay in one place.

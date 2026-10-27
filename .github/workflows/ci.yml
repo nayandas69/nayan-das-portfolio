@@ -5,7 +5,7 @@
 # and pull request against the all branch.
 #
 # Steps run sequentially so failures surface in a logical
-# order: format -> test -> build.
+# order: format -> test -> build -> production smoke.
 #
 # Matrix: Node 24 (Matching package.json)
 # -----------------------------------------------------------
@@ -64,6 +64,32 @@ jobs:
       - name: Run tests (Vitest)
         run: pnpm test
 
+      - name: Prepare blog smoke fixtures
+        run: node scripts/blog-smoke-fixtures.mjs prepare
+
       # ---- Build ----
       - name: Build project (Nuxt)
         run: pnpm build
+
+      # ---- Production blog routes and metadata ----
+      - name: Smoke test production blog
+        env:
+          PORT: 3000
+          HOST: 127.0.0.1
+        run: |
+          node .output/server/index.mjs > /tmp/portfolio-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent "http://127.0.0.1:$PORT/blog" > /dev/null; then
+              pnpm test:blog:smoke "http://127.0.0.1:$PORT"
+              exit $?
+            fi
+            sleep 1
+          done
+          cat /tmp/portfolio-preview.log
+          exit 1
+
+      - name: Clean up blog smoke fixtures
+        if: always()
+        run: node scripts/blog-smoke-fixtures.mjs cleanup

@@ -14,7 +14,7 @@
   "type": "module",
   "packageManager": "pnpm@12.14.0",
   "engines": {
-    "node": ">=24.x"
+    "node": "^24.15.0"
   },
   "scripts": {
     "dev": "nuxt dev",
@@ -25,23 +25,33 @@
     "test": "vitest run",
     "test:watch": "vitest --watch",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:blog:smoke": "node scripts/check-blog.mjs"
   },
   "dependencies": {
-    "nuxt": "^4.6.2",
+    "nuxt": "4.6.3",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
+    "@mdx-js/mdx": "^3.1.1",
     "@nuxt/image": "^2.2.0",
+    "@nuxt/kit": "4.6.3",
     "@nuxt/test-utils": "^4.3.4",
     "@nuxtjs/sitemap": "^9.1.0",
-    "@types/node": "^26.6.5",
+    "@shikijs/rehype": "^4.5.0",
+    "@types/node": "^24.19.2",
     "@vue/test-utils": "^2.5.1",
     "happy-dom": "^21.0.4",
+    "hast-util-to-string": "^3.0.1",
+    "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.9.10",
-    "sass-embedded": "^1.106.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "sass-embedded": "^1.106.1",
     "sharp": "^0.35.5",
-    "vitest": "^5.0.5"
+    "unist-util-visit": "^5.2.0",
+    "vitest": "^5.0.5",
+    "yaml": "^2.9.1"
   }
 }

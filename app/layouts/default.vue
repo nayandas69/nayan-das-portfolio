@@ -30,6 +30,8 @@
   }
 
   .main-content {
-    padding-bottom: $space-9; // Space for the floating capsule navbar
+    padding-bottom: calc(
+      #{$space-9} + env(safe-area-inset-bottom, 0px)
+    ); // Space for the floating capsule navbar
   }
 </style>

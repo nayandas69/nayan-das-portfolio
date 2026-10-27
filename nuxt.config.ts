@@ -100,19 +100,27 @@ export default defineNuxtConfig({
         },
         /* DNS prefetch for API domains — resolves DNS early */
         { rel: 'dns-prefetch', href: 'https://api.github.com' },
-        { rel: 'dns-prefetch', href: 'https://blogverse-five-omega.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://avatars.githubusercontent.com' },
       ],
     },
   },
 
   /* ── Modules ────────────────────────────────────── */
-  modules: ['@nuxt/test-utils/module', '@nuxtjs/sitemap', '@nuxt/image'],
+  modules: [
+    './modules/blog/index.mjs',
+    '@nuxt/test-utils/module',
+    '@nuxtjs/sitemap',
+    '@nuxt/image',
+  ],
+
+  runtimeConfig: {
+    public: { siteUrl: 'https://nayan-das-portfolio-navy.vercel.app' },
+  },
 
   /* ── Site URL for sitemap generation ────────────── */
   // @ts-ignore - 'site' property from @nuxtjs/sitemap
   site: {
-    url: 'https://nayan-das-portfolio-navy.vercel.app',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nayan-das-portfolio-navy.vercel.app',
   },
 
   /* ── Route Rules for Full SSR ────────────────────── */

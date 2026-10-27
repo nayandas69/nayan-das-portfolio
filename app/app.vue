@@ -1,12 +1,12 @@
 <!--
   App Root
   Renders the default layout via <NuxtLayout> and the active page via <NuxtPage>.
-  Blur reveal is handled purely via CSS animation on body (see main.scss).
+  Smooth route licks, with the navigation staying right where you left it.
 -->
 <template>
   <div class="app-wrapper">
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage :transition="{ name: 'page', mode: 'out-in' }" />
     </NuxtLayout>
   </div>
 </template>

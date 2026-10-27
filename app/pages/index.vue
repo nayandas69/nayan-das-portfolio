@@ -11,7 +11,7 @@
     <!-- Projects: auto-fetched GitHub repos in card grid -->
     <ProjectsSection class="motion-blur delay-400" />
 
-    <!-- Articles: auto-fetched blog posts from Blogverse API -->
+    <!-- Articles: five latest posts from the repository -->
     <ArticlesSection class="motion-blur delay-500" />
   </main>
 </template>

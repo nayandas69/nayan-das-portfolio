@@ -1,0 +1,73 @@
+---
+title: Markdown should help the reader navigate
+description: A practical tour of headings, code fences, tables, task lists, and all five callout types.
+date: 2026-10-23
+tags: [Writing, Accessibility]
+---
+
+Formatting is most useful when it explains the structure of an idea. A heading marks a new question. A list collects related steps. A callout gives a reader a reason to slow down. This article is also a working example of the formatting supported in this blog.
+
+## Give code a language
+
+A fenced block preserves whitespace. Adding a language lets the renderer highlight the example. Keep examples small enough to understand in context.
+
+```ts
+const topics = ['Vue', 'Nuxt', 'Testing'];
+const readable = topics.join(', ');
+console.log(readable);
+```
+
+Inline code is useful for a filename such as `content/blog/example.md`, a property such as `draft`, or a command such as `pnpm build`. Long sequences belong in a fenced block so they can scroll on a narrow screen.
+
+## Use callouts deliberately
+
+> [!NOTE]
+> A note supplies context that is useful without interrupting the main explanation.
+
+> [!TIP]
+> A tip offers an optional improvement. Use the uppercase singular marker with no spaces inside the brackets.
+
+> [!IMPORTANT]
+> An important callout highlights a requirement the reader needs to complete the task.
+
+> [!WARNING]
+> A warning describes a likely mistake and explains how to avoid it.
+
+> [!CAUTION]
+> A caution explains a consequence that deserves extra attention before proceeding.
+
+A normal blockquote stays a blockquote:
+
+> Clear writing gives each paragraph one job.
+
+## Put comparisons in tables
+
+| Format     | Good fit                                | Authoring rule            |
+| ---------- | --------------------------------------- | ------------------------- |
+| Markdown   | Articles with prose and examples        | Save as `.md`             |
+| MDX        | Articles with expressions or components | Save as `.mdx`            |
+| Code fence | Copyable source text                    | Add a language when known |
+
+A table should answer a comparison question. If every cell contains a paragraph, a sequence of short sections may be easier to read on a phone.
+
+## Make progress visible
+
+- [x] Write a specific title.
+- [x] Add a short description.
+- [ ] Read the draft aloud before publishing.
+
+Task lists are useful in a walkthrough. In an article they describe progress; they are not a saved checklist for the visitor.
+
+### Use MDX when it adds something
+
+<Callout type="tip" title="A reusable component">
+
+This callout is a Vue component supplied to MDX. Its content is still written as Markdown, including **emphasis** and `inline code`.
+
+</Callout>
+
+An MDX expression can compute a small value: this example has {2 + 3} callout categories. Use that power to support the explanation. An article should remain understandable when read as source.
+
+## Finish with a useful next step
+
+Read the article once on a narrow screen. Check that headings form an outline, links explain their destinations, and code examples fit without pushing the whole page sideways. A little editing usually improves the experience more than another formatting feature.
