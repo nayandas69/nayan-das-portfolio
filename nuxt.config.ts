@@ -75,10 +75,10 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:creator', content: '@nayandas69' },
-        { property: 'og:image', content: 'https://nayan-das-portfolio-navy.vercel.app/look.png' },
+        { property: 'og:image', content: 'https://nayan-das-portfolio-nine.vercel.app/look.png' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { name: 'twitter:image', content: 'https://nayan-das-portfolio-navy.vercel.app/look.png' },
+        { name: 'twitter:image', content: 'https://nayan-das-portfolio-nine.vercel.app/look.png' },
       ],
       link: [
         /* Favicon - Github avatar as a simple personal brand icon */
@@ -114,13 +114,13 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    public: { siteUrl: 'https://nayan-das-portfolio-navy.vercel.app' },
+    public: { siteUrl: 'https://nayan-das-portfolio-nine.vercel.app' },
   },
 
   /* ── Site URL for sitemap generation ────────────── */
   // @ts-ignore - 'site' property from @nuxtjs/sitemap
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nayan-das-portfolio-navy.vercel.app',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nayan-das-portfolio-nine.vercel.app',
   },
 
   /* ── Route Rules for Full SSR ────────────────────── */
