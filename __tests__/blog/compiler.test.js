@@ -128,6 +128,13 @@ describe('Markdown and MDX rendered through Vue', () => {
     expect(html).not.toContain('<script>');
   });
 
+  it.each(['md', 'mdx'])('passes code titles and languages to the header in %s', async (format) => {
+    const { html } = await render('```ts title="example.ts"\nconst answer = 42;\n```', format);
+    expect(html).toContain('data-code-title="example.ts"');
+    expect(html).toContain('data-language="ts"');
+    expect(html).toContain('const');
+  });
+
   it('renders unlabelled and unknown languages as plain code', async () => {
     const { html } = await render(
       '```made-up-language\nhello <world>\n```\n\n```\nplain code\n```'

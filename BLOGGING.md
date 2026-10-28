@@ -26,7 +26,7 @@ Run `pnpm dev`, then open `/blog`. Editing, adding, renaming, or deleting a cont
 
 Markdown supports headings, emphasis, links, images, lists, ordinary blockquotes, horizontal rules, GFM tables, strikethrough, and task lists. Level-two and level-three Markdown headings automatically populate the table of contents with unique anchor IDs. Put images in `public/images/` and reference them as `/images/example.png`, with useful alt text.
 
-Use fenced code blocks with a language, such as `ts`, `js`, `vue`, `css`, `bash`, `json`, or `yaml`. Highlighting is generated at build time for both themes. Missing or unknown languages render as plain code. Code blocks scroll independently, can receive keyboard focus, and offer a copy button. Plain `.md` files preserve literal braces; use `.mdx` for expressions and JSX.
+Use fenced code blocks with a language, such as `ts`, `js`, `vue`, `css`, `bash`, `json`, or `yaml`. Highlighting is generated at build time for both themes. Missing or unknown languages render as plain code. Add an optional filename with `title="example.ts"` after the language in the opening fence (for example, ` ```ts title="example.ts" `). The header shows this title, or the language when no title is provided. Code blocks scroll independently, can receive keyboard focus, and offer a copy button. Plain `.md` files preserve literal braces; use `.mdx` for expressions and JSX.
 
 ### Callouts
 

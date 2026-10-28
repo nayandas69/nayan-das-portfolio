@@ -1,10 +1,13 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { mountSuspended } from '@nuxt/test-utils/runtime';
 import { flushPromises, mount } from '@vue/test-utils';
 import ArticlesSection from '~/components/ArticlesSection.vue';
 import BlogIndex from '~/pages/blog/index.vue';
 import CodeBlock from '~/components/blog/CodeBlock.vue';
 import { useBlogPosts } from '~/composables/useBlogPosts';
+import { compilePost } from '../../modules/blog/compiler.mjs';
 
 vi.mock('#blog', async () => await import('../fixtures/blog.js'));
 
@@ -44,11 +47,52 @@ describe('article discovery', () => {
   });
 });
 
+describe.each(['md', 'mdx'])('compiled %s code headers', (format) => {
+  it.each([
+    ['unlabelled', '```\nplain <code>\n```', 'Code'],
+    ['explicit text', '```text\nplain <code>\n```', 'text'],
+    ['unknown language', '```made-up-language\nplain <code>\n```', 'text'],
+    ['known language', '```ts\nconst answer = 42;\n```', 'ts'],
+    ['filename', '```ts title="example.ts"\nconst answer = 42;\n```', 'example.ts'],
+  ])('renders the %s header through the CodeBlock mapping', async (_name, fence, title) => {
+    const source = `---
+title: Code headers
+description: Code header regression fixture.
+date: 2026-10-01
+tags: [Testing]
+---
+${fence}`;
+    const result = await compilePost(source, `code-headers.${format}`);
+    const code = result.code.replaceAll(
+      '"#blog-runtime/jsx-runtime"',
+      JSON.stringify(pathToFileURL(resolve('modules/blog/jsx-runtime.mjs')).href)
+    );
+    const { default: Article } = await import(
+      `data:text/javascript;base64,${Buffer.from(code).toString('base64')}`
+    );
+    const wrapper = mount(Article, { props: { components: { pre: CodeBlock } } });
+    try {
+      expect(wrapper.find('.code-block__title').text()).toBe(title);
+      expect(wrapper.find('pre code').text()).toBe(
+        fence.includes('const answer') ? 'const answer = 42;' : 'plain <code>'
+      );
+      expect(wrapper.find('pre').attributes('tabindex')).toBe('0');
+      expect(wrapper.find('script').exists()).toBe(false);
+    } finally {
+      wrapper.unmount();
+    }
+  });
+});
+
 describe('code copying', () => {
   it('copies only code text and announces success', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     vi.spyOn(navigator, 'clipboard', 'get').mockReturnValue({ writeText });
-    const wrapper = mount(CodeBlock, { slots: { default: '<code>const answer = 42;</code>' } });
+    const wrapper = mount(CodeBlock, {
+      attrs: { 'data-code-title': 'example.ts', 'data-language': 'ts' },
+      slots: { default: '<code>const answer = 42;</code>' },
+    });
+    expect(wrapper.find('.code-block__title').text()).toBe('example.ts');
     await wrapper.find('button').trigger('click');
     await flushPromises();
     expect(writeText).toHaveBeenCalledWith('const answer = 42;');

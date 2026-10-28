@@ -172,9 +172,10 @@
   }
   pre {
     overflow-x: auto;
-    padding: 3.25rem 1.25rem 1.25rem;
-    border: 1px solid $color-border;
-    border-radius: 6px;
+    margin: 0;
+    padding: 1.5rem;
+    border: 0;
+    border-radius: 0 0 1.25rem 1.25rem;
     line-height: 1.7;
     tab-size: 2;
   }
@@ -186,27 +187,79 @@
   pre,
   pre span {
     color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
+    background-color: transparent;
   }
   pre code span {
     background-color: transparent;
   }
   .code-block {
-    position: relative;
+    --code-bg: #0b2019;
+    --code-border: #294138;
+    --code-muted: #a5bbb1;
     min-width: 0;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 32px rgb(0 0 0 / 12%);
+  }
+  .code-block__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--code-border);
+  }
+  .code-block__dots {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.45rem;
+    i {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+    i:nth-child(2) {
+      background: #febc2e;
+    }
+    i:nth-child(3) {
+      background: #28c840;
+    }
+  }
+  .code-block__title {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: var(--code-muted);
   }
   .code-copy {
-    position: absolute;
-    right: 0.6rem;
-    top: 0.6rem;
-    padding: 0.3rem 0.65rem;
-    border: 1px solid $color-border;
-    border-radius: 4px;
-    background: $color-surface;
-    color: $color-text;
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--code-border);
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--code-muted) 8%, transparent);
+    color: var(--code-muted);
     font: inherit;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
     cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover {
+      background: color-mix(in srgb, var(--code-muted) 16%, transparent);
+    }
+  }
+  @media (max-width: $bp-sm) {
+    .code-block__header {
+      gap: 0.75rem;
+      padding: 0.65rem 1rem;
+    }
+    pre {
+      padding: 1.25rem 1rem;
+    }
   }
   blockquote {
     border-left: 3px solid $color-border;
@@ -274,10 +327,16 @@
   }
 }
 :root[data-theme='light'] .blog-prose {
+  .code-block {
+    --code-bg: #f5faf7;
+    --code-border: #ceded5;
+    --code-muted: #496358;
+    box-shadow: 0 12px 32px rgb(22 57 40 / 8%);
+  }
   pre,
   pre span {
     color: var(--shiki-light);
-    background-color: var(--shiki-light-bg);
+    background-color: transparent;
   }
   pre code span {
     background-color: transparent;

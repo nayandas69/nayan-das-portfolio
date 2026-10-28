@@ -5,7 +5,7 @@ import { parsePost, publishedPosts } from '../modules/blog/compiler.mjs';
 // Prepare smoke fixtures before building, then run against the started production server.
 const base = process.argv[2] || 'http://127.0.0.1:3000';
 const origin = (
-  process.env.NUXT_PUBLIC_SITE_URL || 'https://nayan-das-portfolio-navy.vercel.app'
+  process.env.NUXT_PUBLIC_SITE_URL || 'https://nayan-das-portfolio-nine.vercel.app'
 ).replace(/\/$/, '');
 const directory = new URL('../content/blog/', import.meta.url);
 const entries = await Promise.all(
@@ -82,6 +82,11 @@ const guide = await request('/blog/markdown-that-reads-well');
 for (const type of ['note', 'tip', 'important', 'warning', 'caution'])
   assert.ok(guide.includes(`callout--${type}`), `${type} callout rendered`);
 assert.ok(guide.includes('5 callout categories'), 'MDX expression evaluated');
+assert.match(
+  guide,
+  /<span class="code-block__title"[^>]*>example\.ts<\/span>/,
+  'article page maps fenced code to the titled CodeBlock component'
+);
 assert.ok(guide.includes('class="callout callout--tip"'), 'callout uses actual HTML classes');
 await request('/blog/this-article-does-not-exist', 404);
 const home = await request('/');
@@ -95,5 +100,5 @@ assert.equal(
 for (const post of posts.slice(0, 5))
   assert.ok(section.includes(`href="${post.url}"`), 'home links to the correct newest article');
 console.log(
-  `Blog smoke passed: ${posts.length} article routes, archive, five home previews, sitemap, canonical URLs, structured data, callouts, MDX expression, ${excludedEntries.length} excluded articles, and missing-slug 404.`
+  `Blog smoke passed: ${posts.length} article routes, archive, five home previews, sitemap, canonical URLs, structured data, titled code header, callouts, MDX expression, ${excludedEntries.length} excluded articles, and missing-slug 404.`
 );

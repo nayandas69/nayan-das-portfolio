@@ -30,7 +30,7 @@
         name: 'description',
         content: `Portfolio of ${profile.name} — a developer and creator who builds open-source tools and writes about code.`,
       },
-      { property: 'og:image', content: 'https://nayan-das-portfolio-navy.vercel.app/look.png' },
+      { property: 'og:image', content: 'https://nayan-das-portfolio-nine.vercel.app/look.png' },
     ],
   });
 </script>

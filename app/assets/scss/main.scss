@@ -42,8 +42,9 @@ body {
     background-color 0.25s ease,
     color 0.25s ease;
 
-  // Basic fade-in to clear the opacity:0 set in nuxt.config.ts
-  animation: bodyFadeIn 0.3s ease-out forwards;
+  // Release the opacity layer after the entrance so fixed glass controls
+  // can sample and blur the page behind them.
+  animation: bodyFadeIn 0.3s ease-out;
 }
 
 @keyframes bodyFadeIn {

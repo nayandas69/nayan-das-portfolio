@@ -142,7 +142,16 @@ export async function compilePost(source, file) {
             themes: { dark: 'github-dark', light: 'github-light' },
             defaultColor: false,
             fallbackLanguage: 'text',
-            defaultLanguage: 'text',
+            transformers: [
+              {
+                name: 'blog-code-header',
+                pre(node) {
+                  node.properties['data-language'] = this.options.lang;
+                  const title = this.options.meta?.__raw?.match(/(?:^|\s)title="([^"]+)"/);
+                  if (title) node.properties['data-code-title'] = title[1];
+                },
+              },
+            ],
             langs: [],
             lazy: true,
           },

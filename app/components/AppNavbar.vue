@@ -68,17 +68,22 @@
   }
 
   .navbar-capsule {
+    position: relative;
     pointer-events: auto; /* Enable clicks on the menu itself */
     max-width: 100%;
-    background: color-mix(in srgb, $color-surface 75%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: $color-surface;
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      background: color-mix(in srgb, $color-surface 90%, transparent);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      backdrop-filter: blur(24px) saturate(140%);
+    }
     border: 1px solid color-mix(in srgb, $color-border 90%, transparent);
     border-radius: $space-6;
     padding: $space-2 0.625rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow:
+      0 8px 32px color-mix(in srgb, $color-text 12%, transparent),
+      inset 0 1px 0 color-mix(in srgb, $color-text 6%, transparent);
     animation: navbarRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-    will-change: transform, opacity;
 
     /* Subtle top highlight for a glassy feel */
     &::before {
@@ -104,7 +109,6 @@
     min-width: 44px;
     animation: navItemRise 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(0.12s + var(--i) * 0.06s);
-    will-change: transform, opacity;
   }
 
   .nav-link {

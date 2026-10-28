@@ -6,7 +6,7 @@
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.44-green?logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.3-green?logo=nuxt.js&logoColor=white)](https://nuxt.com/)
 [![SCSS](https://img.shields.io/badge/SCSS-1.106.1-pink?logo=sass&logoColor=white)](https://sass-lang.com/)
-[![Production Deployment](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel)](https://nayan-das-portfolio-navy.vercel.app)
+[![Production Deployment](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel)](https://nayan-das-portfolio-nine.vercel.app)
 [![Discord](https://img.shields.io/discord/1435329767149797461?label=Join%20Discord&logo=discord&color=5865F2)](https://discord.gg/u9XfHZN8K9)
 
 </div>
