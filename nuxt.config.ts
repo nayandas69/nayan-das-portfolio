@@ -134,6 +134,7 @@ export default defineNuxtConfig({
     zeroRuntime: true,
     discoverImages: true,
     autoLastmod: true,
+    xsl: false,
   },
 
   /* ── Dev server — bind all interfaces, allow preview hostname ── */
